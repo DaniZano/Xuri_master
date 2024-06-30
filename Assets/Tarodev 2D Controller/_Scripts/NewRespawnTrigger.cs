@@ -15,6 +15,9 @@ public class NewRespawnTrigger : MonoBehaviour
             {
                 playerController.SetRespawnPoint(newRespawnPoint);
             }
+
+            gameObject.SetActive(false);
+
         }
     }
 }
