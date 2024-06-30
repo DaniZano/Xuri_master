@@ -238,6 +238,12 @@ namespace TarodevController
             }
         }
 
+        public void SetRespawnPoint(Transform newRespawnPoint)
+        {
+            respawnPoint = newRespawnPoint;
+            Debug.Log("Respawn point changed to: " + newRespawnPoint.name);
+        }
+
         public void Respawn()
         {
             transform.position = respawnPoint.position;
