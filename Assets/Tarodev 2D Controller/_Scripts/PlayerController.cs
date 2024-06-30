@@ -30,6 +30,7 @@ namespace TarodevController
 
 
 
+
         #region Interface
 
         public Vector2 FrameInput => _frameInput.Move;
@@ -246,6 +247,8 @@ namespace TarodevController
             lightController.ResetLightAfterRespawn();
             collectibleCount = 0;
             Collectible.CollectiblesReappear();
+            FallingPlatformManager.ResetAllPlatforms();
+
 
 
         }
