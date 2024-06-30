@@ -1,0 +1,35 @@
+using UnityEngine;
+using TarodevController;
+using System.Collections.Generic;
+
+public class Collectible : MonoBehaviour
+{
+    private static List<Collectible> allCollectibles = new List<Collectible>();
+
+    private void Awake()
+    {
+        allCollectibles.Add(this);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.CollectibleCollected();
+                gameObject.SetActive(false); // Disabilita il collezionabile
+            }
+        }
+    }
+
+    public static void CollectiblesReappear()
+    {
+        foreach (Collectible collectible in allCollectibles)
+        {
+            collectible.gameObject.SetActive(true); // Riattiva il collezionabile
+        }
+    }
+}
+
