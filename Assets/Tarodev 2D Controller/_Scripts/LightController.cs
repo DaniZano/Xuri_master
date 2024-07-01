@@ -14,8 +14,6 @@ public class LightController : MonoBehaviour
     public Color colorLessThan10 = Color.red;
     public Color colorGreaterThan10 = Color.white;
 
-    public Transform respawnPoint;     // Punto di respawn del giocatore
-
     private PlayerController playerController;
 
     private void Start()
@@ -101,10 +99,5 @@ public class LightController : MonoBehaviour
         }
     }
 
-    // Per visualizzare il raggio della luce nell'editor
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, pointLight.range);
-    }
+    
 }
