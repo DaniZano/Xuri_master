@@ -241,7 +241,11 @@ namespace TarodevController
         public void SetRespawnPoint(Transform newRespawnPoint)
         {
             respawnPoint = newRespawnPoint;
-            Debug.Log("Respawn point changed to: " + newRespawnPoint.name);
+        }
+
+        public void SetDeathYLevel(float newDeathYLevel)
+        {
+            deathYLevel = newDeathYLevel;
         }
 
         public void Respawn()
