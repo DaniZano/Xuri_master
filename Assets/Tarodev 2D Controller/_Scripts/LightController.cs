@@ -18,7 +18,6 @@ public class LightController : MonoBehaviour
 
     private PlayerController playerController;
 
-
     private void Start()
     {
         playerController = GetComponentInParent<PlayerController>();
@@ -82,11 +81,25 @@ public class LightController : MonoBehaviour
     {
         if (pointLight.range <= 0)
         {
-            playerController.Respawn();
+            bool isInAnotherLightRange = false;
+
+            // Cerca tutte le luci secondarie e controlla se il giocatore è nel raggio di una di esse
+            SecondaryLightController[] allSecondaryLights = FindObjectsOfType<SecondaryLightController>();
+            foreach (SecondaryLightController lightController in allSecondaryLights)
+            {
+                if (lightController.playerInRange)
+                {
+                    isInAnotherLightRange = true;
+                    break;
+                }
+            }
+
+            if (!isInAnotherLightRange)
+            {
+                playerController.Respawn();
+            }
         }
     }
-
-    
 
     // Per visualizzare il raggio della luce nell'editor
     private void OnDrawGizmosSelected()

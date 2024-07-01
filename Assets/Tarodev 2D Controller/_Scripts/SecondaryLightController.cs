@@ -1,26 +1,21 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class LightRangeColliderSync : MonoBehaviour
+public class SecondaryLightController : MonoBehaviour
 {
     private CircleCollider2D circleCollider;
     private Light pointLight;
+    public bool playerInRange = false; // Ora è pubblico e accessibile da altre classi
 
     void Start()
     {
-        // Ottieni il CircleCollider2D attaccato a questo GameObject
         circleCollider = GetComponent<CircleCollider2D>();
-
-        // Ottieni il componente Light (Point Light) attaccato a questo GameObject
         pointLight = GetComponent<Light>();
-
-        // Sincronizza la dimensione del collider con il range iniziale della luce
         SyncColliderWithLightRange();
     }
 
     void Update()
     {
-        // Verifica se il range della luce è cambiato e sincronizza il collider di conseguenza
         if (HasLightRangeChanged())
         {
             SyncColliderWithLightRange();
@@ -29,13 +24,29 @@ public class LightRangeColliderSync : MonoBehaviour
 
     void SyncColliderWithLightRange()
     {
-        // Imposta il raggio del collider uguale al range della Point Light
         circleCollider.radius = pointLight.range;
     }
 
     bool HasLightRangeChanged()
     {
-        // Verifica se il range della Point Light è cambiato rispetto all'ultimo frame
         return Mathf.Abs(circleCollider.radius - pointLight.range) > Mathf.Epsilon;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && !playerInRange)
+        {
+            playerInRange = true;
+            Debug.Log("Dentro");
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && playerInRange)
+        {
+            playerInRange = false;
+            Debug.Log("Fuori");
+        }
     }
 }
