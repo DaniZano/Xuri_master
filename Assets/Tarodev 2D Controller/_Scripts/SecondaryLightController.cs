@@ -7,10 +7,19 @@ public class SecondaryLightController : MonoBehaviour
     private Light pointLight;
     public bool playerInRange = false; // Ora è pubblico e accessibile da altre classi
 
+    public float netRange = 10f;  // Range netto e definito della luce
+    public float netIntensity = 5f;  // Intensità della luce netta e definita
+
     void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
         pointLight = GetComponent<Light>();
+
+        // Imposta le proprietà della luce per essere nette e definite
+        pointLight.range = netRange;
+        pointLight.intensity = netIntensity;
+        pointLight.shadows = LightShadows.Hard;  // Usa ombre dure per maggiore definizione
+
         SyncColliderWithLightRange();
     }
 
@@ -36,8 +45,8 @@ public class SecondaryLightController : MonoBehaviour
     {
         if (other.CompareTag("Player") && !playerInRange)
         {
+            Debug.Log("Player entered trigger zone.");
             playerInRange = true;
-            Debug.Log("Dentro"); //debug
         }
     }
 
@@ -45,8 +54,8 @@ public class SecondaryLightController : MonoBehaviour
     {
         if (other.CompareTag("Player") && playerInRange)
         {
+            Debug.Log("Player exited trigger zone.");
             playerInRange = false;
-            Debug.Log("Fuori");
         }
     }
 }
