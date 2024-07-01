@@ -37,7 +37,7 @@ public class SecondaryLightController : MonoBehaviour
         if (other.CompareTag("Player") && !playerInRange)
         {
             playerInRange = true;
-            Debug.Log("Dentro");
+            Debug.Log("Dentro"); //debugs
         }
     }
 
