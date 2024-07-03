@@ -8,6 +8,8 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private Transform target;
 
+    // cameraaa
+
     private void Update()
     {
         Vector3 targetPosition = target.position + offset;
