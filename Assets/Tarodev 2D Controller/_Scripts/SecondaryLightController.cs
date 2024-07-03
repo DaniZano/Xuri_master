@@ -15,6 +15,9 @@ public class SecondaryLightController : MonoBehaviour
         circleCollider = GetComponent<CircleCollider2D>();
         pointLight = GetComponent<Light>();
 
+        // Imposta il collider come trigger
+        circleCollider.isTrigger = true;
+
         // Imposta le proprietà della luce per essere nette e definite
         pointLight.range = netRange;
         pointLight.intensity = netIntensity;

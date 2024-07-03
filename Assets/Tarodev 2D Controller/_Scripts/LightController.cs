@@ -64,7 +64,7 @@ public class LightController : MonoBehaviour
             Entity enemy = hitCollider.GetComponent<Entity>();
             if (enemy != null)
             {
-                enemy.Stun(); // Uccide direttamente il nemico
+                enemy.Stun(); // stunna direttamente il nemico
             }
         }
     }

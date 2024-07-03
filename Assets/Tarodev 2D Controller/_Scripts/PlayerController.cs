@@ -19,6 +19,8 @@ namespace TarodevController
         // Respawn related variables
         public Transform respawnPoint;
         public float deathYLevel = -10f;
+        public Vector3 cameraOffset; // Offset per la posizione della camera
+
 
         // Double jump related variables
         private int _jumpsRemaining;
