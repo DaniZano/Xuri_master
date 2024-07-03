@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 57abeefdf9c5bfa459eceefe75a88e2a
+guid: 42dc850a1933b574cb3b7524813da04a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,17 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material
-    second: {fileID: 2100000, guid: 279199c2b8d69754d86ec0b3b04a4a6d, type: 2}
+    second: {fileID: 2100000, guid: bf83fca4fbae22a4288ea0c5a17d65f4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.002
-    second: {fileID: 2100000, guid: f84a4e870b4416a4faf21ed614597c10, type: 2}
+    second: {fileID: 2100000, guid: 3f0e611106c0c55469ba88ca9603c628, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Stylize Edgy Rock.001
-    second: {fileID: 2100000, guid: f15897572ebfd5e4eb810a3912f95c53, type: 2}
+    second: {fileID: 2100000, guid: 22e2f37fc66a62b428d4080968559a33, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
