@@ -109,14 +109,11 @@ namespace TarodevController
         {
             Physics2D.queriesStartInColliders = false;
 
-            // Ground and Ceiling
             bool groundHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _stats.GrounderDistance, ~_stats.PlayerLayer);
             bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, ~_stats.PlayerLayer);
 
-            // Hit a Ceiling
             if (ceilingHit) _frameVelocity.y = Mathf.Min(0, _frameVelocity.y);
 
-            // Landed on the Ground
             if (!_grounded && groundHit)
             {
                 _grounded = true;
@@ -126,17 +123,22 @@ namespace TarodevController
                 _endedJumpEarly = false;
                 GroundedChanged?.Invoke(true, Mathf.Abs(_frameVelocity.y));
             }
-            // Left the Ground
             else if (_grounded && !groundHit)
             {
                 _grounded = false;
                 _frameLeftGrounded = _time;
                 GroundedChanged?.Invoke(false, 0);
-                _jumpsRemaining = 1;
+
+                // Mantieni il conteggio dei salti rimanenti quando si lascia il terreno
+                if (_jumpsRemaining == _maxJumps)
+                {
+                    _jumpsRemaining = _maxJumps - 1; // Se non è stato utilizzato nessun salto
+                }
             }
 
             Physics2D.queriesStartInColliders = _cachedQueryStartInColliders;
         }
+
 
         #endregion
 
@@ -167,11 +169,21 @@ namespace TarodevController
             _endedJumpEarly = false;
             _timeJumpWasPressed = 0;
             _bufferedJumpUsable = false;
-            _coyoteUsable = false;
+
+            if (_grounded || CanUseCoyote)
+            {
+                _coyoteUsable = false;
+                _jumpsRemaining = _maxJumps - 1; // Reset dei salti rimanenti quando si utilizza il coyote time o si salta dal terreno
+            }
+            else
+            {
+                _jumpsRemaining--; // Decrementa il conteggio dei salti solo se si è in aria
+            }
+
             _frameVelocity.y = _stats.JumpPower;
             Jumped?.Invoke();
-            _jumpsRemaining--; // Decremento del conteggio dei salti
         }
+
 
         #endregion
 
