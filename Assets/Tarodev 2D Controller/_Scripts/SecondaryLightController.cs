@@ -8,7 +8,7 @@ public class SecondaryLightController : MonoBehaviour
     public bool playerInRange = false; // Ora è pubblico e accessibile da altre classi
 
     public float netRange = 10f;  // Range netto e definito della luce
-    public float netIntensity = 5f;  // Intensità della luce netta e definita
+    public float netIntensity = 5f;  // Intensità della luce netta e definita //
 
     void Start()
     {
