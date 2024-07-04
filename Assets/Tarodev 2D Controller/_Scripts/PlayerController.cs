@@ -23,10 +23,13 @@ namespace TarodevController
 
 
         // Double jump related variables
-        private int _jumpsRemaining;
+        [SerializeField] private int _jumpsRemaining;
         [SerializeField] private int _maxJumps = 2;
 
         private LightController lightController;
+
+        public Animator animator;
+
 
 
 
@@ -109,10 +112,23 @@ namespace TarodevController
 
         private void CheckCollisions()
         {
+
+            // Parametri del cast
+            Vector2 origin = _col.bounds.center;
+            Vector2 size = _col.size;
+            CapsuleDirection2D direction = _col.direction;
+            float angle = 0;
+            float distance = _stats.GrounderDistance;
+            int layerMask = ~_stats.PlayerLayer;
+
             Physics2D.queriesStartInColliders = false;
 
             bool groundHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _stats.GrounderDistance, ~_stats.PlayerLayer);
             bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, ~_stats.PlayerLayer);
+
+            Debug.DrawRay(origin, Vector2.down * distance, groundHit ? Color.green : Color.red);
+            Debug.DrawRay(origin, Vector2.up * distance, ceilingHit ? Color.green : Color.red);
+
 
             if (ceilingHit) _frameVelocity.y = Mathf.Min(0, _frameVelocity.y);
 
@@ -124,6 +140,9 @@ namespace TarodevController
                 _bufferedJumpUsable = true;
                 _endedJumpEarly = false;
                 GroundedChanged?.Invoke(true, Mathf.Abs(_frameVelocity.y));
+                Debug.Log("Personaggio a contatto con il terreno");
+                Debug.Log("Grounded is" + _grounded);
+                animator.SetTrigger("isGrounded");
             }
             else if (_grounded && !groundHit)
             {
@@ -161,7 +180,19 @@ namespace TarodevController
 
             if (!_jumpToConsume && !HasBufferedJump) return;
 
-            if (_grounded || CanUseCoyote || _jumpsRemaining > 0) ExecuteJump();
+            if (_grounded || CanUseCoyote || _jumpsRemaining > 0)
+            {
+                ExecuteJump();
+                animator.SetTrigger("Jump");
+
+            }
+
+            
+            if (!_grounded && _jumpsRemaining == 1)
+            {
+                animator.SetTrigger("DoubleJump");
+            }
+
 
             _jumpToConsume = false;
         }
@@ -171,6 +202,8 @@ namespace TarodevController
             _endedJumpEarly = false;
             _timeJumpWasPressed = 0;
             _bufferedJumpUsable = false;
+
+
 
             if (_grounded || CanUseCoyote)
             {
@@ -184,6 +217,8 @@ namespace TarodevController
 
             _frameVelocity.y = _stats.JumpPower;
             Jumped?.Invoke();
+            //animator.SetTrigger("Jump"); // Imposta il trigger Jump per avviare l'animazione di salto
+
         }
 
 
@@ -197,10 +232,12 @@ namespace TarodevController
             {
                 var deceleration = _grounded ? _stats.GroundDeceleration : _stats.AirDeceleration;
                 _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, 0, deceleration * Time.fixedDeltaTime);
+                animator.SetBool("isRunning", false);
             }
             else
             {
                 _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, _frameInput.Move.x * _stats.MaxSpeed, _stats.Acceleration * Time.fixedDeltaTime);
+                animator.SetBool("isRunning", true);
 
                 // Flip the character to face the direction of movement
                 if (_frameInput.Move.x > 0 && !_facingRight)
