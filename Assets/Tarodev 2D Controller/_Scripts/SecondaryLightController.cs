@@ -8,12 +8,15 @@ public class SecondaryLightController : MonoBehaviour
     public bool playerInRange = false; // Ora è pubblico e accessibile da altre classi
 
     public float netRange = 10f;  // Range netto e definito della luce
-    public float netIntensity = 5f;  // Intensità della luce netta e definita
+    public float netIntensity = 5f;  // Intensità della luce netta e definita //
 
     void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
         pointLight = GetComponent<Light>();
+
+        // Imposta il collider come trigger
+        circleCollider.isTrigger = true;
 
         // Imposta le proprietà della luce per essere nette e definite
         pointLight.range = netRange;
