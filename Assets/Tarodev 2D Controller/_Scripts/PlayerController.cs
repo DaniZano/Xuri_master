@@ -143,12 +143,15 @@ namespace TarodevController
                 Debug.Log("Personaggio a contatto con il terreno");
                 Debug.Log("Grounded is" + _grounded);
                 animator.SetTrigger("isGrounded");
+                animator.SetBool("isGround", _grounded);
             }
             else if (_grounded && !groundHit)
             {
                 _grounded = false;
                 _frameLeftGrounded = _time;
                 GroundedChanged?.Invoke(false, 0);
+                animator.SetBool("isGround", !_grounded);
+
 
                 // Mantieni il conteggio dei salti rimanenti quando si lascia il terreno
                 if (_jumpsRemaining == _maxJumps)
@@ -188,10 +191,7 @@ namespace TarodevController
             }
 
             
-            if (!_grounded && _jumpsRemaining == 1)
-            {
-                animator.SetTrigger("DoubleJump");
-            }
+            
 
 
             _jumpToConsume = false;
@@ -209,6 +209,11 @@ namespace TarodevController
             {
                 _coyoteUsable = false;
                 _jumpsRemaining = _maxJumps - 1; // Reset dei salti rimanenti quando si utilizza il coyote time o si salta dal terreno
+            }
+
+            else if (!_grounded && _jumpsRemaining == 1)
+            {
+                animator.SetTrigger("DoubleJump");
             }
             else
             {
