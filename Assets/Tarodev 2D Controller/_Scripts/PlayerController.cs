@@ -211,10 +211,7 @@ namespace TarodevController
                 _jumpsRemaining = _maxJumps - 1; // Reset dei salti rimanenti quando si utilizza il coyote time o si salta dal terreno
             }
 
-            else if (!_grounded && _jumpsRemaining == 1)
-            {
-                animator.SetTrigger("DoubleJump");
-            }
+            
             else
             {
                 _jumpsRemaining--; // Decrementa il conteggio dei salti solo se si è in aria
