@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: 9d4fb8ad7c0c3a2418cf990818cfdfa4
+guid: 68422db1845595346b8fe7095a22026d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cladding rocks.002
-    second: {fileID: 2100000, guid: ed259b87c43227c4dac5608684cf7220, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stone.003
-    second: {fileID: 2100000, guid: 851b40019f7af194a92f153d517bdf2b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stone.004
-    second: {fileID: 2100000, guid: 7d6b013eb843e9c43b223c1f209d0458, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tree.002
-    second: {fileID: 2100000, guid: cd52281eee89d4c4fb05323da7bfefb9, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
