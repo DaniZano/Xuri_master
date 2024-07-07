@@ -34,8 +34,6 @@ namespace TarodevController
 
 
 
-
-
         #region Interface
 
         public Vector2 FrameInput => _frameInput.Move;
