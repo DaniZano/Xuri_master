@@ -138,8 +138,6 @@ namespace TarodevController
                 _bufferedJumpUsable = true;
                 _endedJumpEarly = false;
                 GroundedChanged?.Invoke(true, Mathf.Abs(_frameVelocity.y));
-                Debug.Log("Personaggio a contatto con il terreno");
-                Debug.Log("Grounded is" + _grounded);
                 animator.SetTrigger("isGrounded");
                 animator.SetBool("isGround", _grounded);
             }
