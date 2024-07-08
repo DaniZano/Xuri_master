@@ -15,8 +15,8 @@ TagManager:
   - Edge
   - FallingPlatform
   - Enemy
-  - 
-  - 
+  - Laser
+  - PlatLaser
   - 
   - 
   - 

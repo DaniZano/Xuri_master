@@ -40,21 +40,19 @@ public class Miniboss : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Attiva il miniboss se il giocatore entra nel collider di attivazione
-        if (other == activationTrigger)
+        // Attiva il miniboss se il giocatore entra nel trigger
+        if (other.gameObject == player)
         {
             isActive = true;
-            Debug.Log("Giocatore entrato nel trigger di attivazione!");
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        // Disattiva il miniboss se il giocatore esce dal collider di attivazione
-        if (other == activationTrigger)
+        // Disattiva il miniboss se il giocatore esce dal trigger
+        if (other.gameObject == player)
         {
             isActive = false;
-            Debug.Log("Giocatore uscito dal trigger di attivazione!");
         }
     }
 
