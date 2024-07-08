@@ -11,12 +11,10 @@ public class Entity : MonoBehaviour
 
     public float stunDuration = 5f; // Durata del stordimento
 
-    private Rigidbody2D rb;
     private Collider2D collider2D;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         collider2D = GetComponent<Collider2D>();
         startPositionX = transform.position.x;
     }
@@ -32,9 +30,10 @@ public class Entity : MonoBehaviour
     private void Move()
     {
         // Movimento avanti e indietro sull'asse X
+        float movement = speed * Time.deltaTime;
         if (isMovingRight)
         {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
+            transform.Translate(movement, 0, 0);
             if (transform.position.x >= startPositionX + patrolDistance)
             {
                 isMovingRight = false;
@@ -42,7 +41,7 @@ public class Entity : MonoBehaviour
         }
         else
         {
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
+            transform.Translate(-movement, 0, 0);
             if (transform.position.x <= startPositionX - patrolDistance)
             {
                 isMovingRight = true;
@@ -55,7 +54,7 @@ public class Entity : MonoBehaviour
         if (!isStunned)
         {
             isStunned = true;
-            rb.velocity = Vector2.zero; // Ferma il movimento
+            // Ferma il movimento
             collider2D.enabled = false; // Disabilita il collider per permettere al giocatore di attraversare il nemico
             Invoke(nameof(Recover), stunDuration); // Imposta un timer per il recupero
         }

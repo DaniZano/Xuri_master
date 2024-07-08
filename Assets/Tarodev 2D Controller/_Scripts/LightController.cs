@@ -14,10 +14,7 @@ public class LightController : MonoBehaviour
     public Color colorLessThan10 = Color.red;
     public Color colorGreaterThan10 = Color.white;
 
-    public Transform respawnPoint;     // Punto di respawn del giocatore
-
     private PlayerController playerController;
-
 
     private void Start()
     {
@@ -67,7 +64,7 @@ public class LightController : MonoBehaviour
             Entity enemy = hitCollider.GetComponent<Entity>();
             if (enemy != null)
             {
-                enemy.Stun(); // Uccide direttamente il nemico
+                enemy.Stun(); // stunna direttamente il nemico
             }
         }
     }
@@ -82,16 +79,25 @@ public class LightController : MonoBehaviour
     {
         if (pointLight.range <= 0)
         {
-            playerController.Respawn();
+            bool isInAnotherLightRange = false;
+
+            // Cerca tutte le luci secondarie e controlla se il giocatore è nel raggio di una di esse
+            SecondaryLightController[] allSecondaryLights = FindObjectsOfType<SecondaryLightController>();
+            foreach (SecondaryLightController lightController in allSecondaryLights)
+            {
+                if (lightController.playerInRange)
+                {
+                    isInAnotherLightRange = true;
+                    break;
+                }
+            }
+
+            if (!isInAnotherLightRange)
+            {
+                playerController.Respawn();
+            }
         }
     }
 
     
-
-    // Per visualizzare il raggio della luce nell'editor
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, pointLight.range);
-    }
 }
