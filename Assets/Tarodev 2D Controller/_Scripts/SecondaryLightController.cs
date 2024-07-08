@@ -48,7 +48,6 @@ public class SecondaryLightController : MonoBehaviour
     {
         if (other.CompareTag("Player") && !playerInRange)
         {
-            Debug.Log("Player entered trigger zone.");
             playerInRange = true;
         }
     }
@@ -57,7 +56,6 @@ public class SecondaryLightController : MonoBehaviour
     {
         if (other.CompareTag("Player") && playerInRange)
         {
-            Debug.Log("Player exited trigger zone.");
             playerInRange = false;
         }
     }

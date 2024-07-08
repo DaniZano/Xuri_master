@@ -316,11 +316,14 @@ namespace TarodevController
 
         #region Collectibles
 
-        public int collectibleCount = 0;
+        public static event Action OnCollected;
+
+        private int collectibleCount = 0;
 
         public void CollectibleCollected()
         {
             collectibleCount++;
+            OnCollected?.Invoke();
         }
 
         public bool UseCollectible()

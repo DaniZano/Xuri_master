@@ -1,6 +1,8 @@
 using System.Collections;
+using TarodevController;
 using UnityEngine;
 
+// devi sistemare la questione di velocità si spawn
 public class BossCollectibleSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject objectPrefab; // Il prefab dell'oggetto da spawnare
@@ -9,46 +11,69 @@ public class BossCollectibleSpawner : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints; // Punti di spawn degli oggetti
 
     private GameObject currentObject;
-    private Coroutine spawnCoroutine;
-
-    private void Start()
-    {
-        // Avvia il ciclo di spawn solo una volta inizialmente
-        SpawnObject();
-    }
+    private bool playerInArea = false;
 
     private void OnEnable()
     {
-        Collectible.OnCollected += HandleObjectCollected; // Iscriviti all'evento statico
+        PlayerController.OnCollected += HandleObjectCollected; // Iscriviti all'evento statico
     }
 
     private void OnDisable()
     {
-        Collectible.OnCollected -= HandleObjectCollected; // Rimuovi l'iscrizione all'evento statico
+        PlayerController.OnCollected -= HandleObjectCollected; // Rimuovi l'iscrizione all'evento statico
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInArea = true;
+            if (currentObject == null)
+            {
+                SpawnObject();
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInArea = false;
+            if (currentObject != null)
+            {
+                Destroy(currentObject); // Rimuovi l'oggetto corrente
+                currentObject = null;
+            }
+            StopAllCoroutines(); // Ferma il respawn se il giocatore esce dall'area
+        }
     }
 
     private void SpawnObject()
     {
-        Vector3 spawnPosition = GetRandomPositionInArea();
+        Vector3 spawnPosition = GetRandomSpawnPoint();
         currentObject = Instantiate(objectPrefab, spawnPosition, Quaternion.identity);
     }
 
-    private void HandleObjectCollected(Collectible collectedObject)
+    private void HandleObjectCollected()
     {
-        collectedObject.gameObject.SetActive(false);
-        currentObject = null; // Imposta l'oggetto corrente a null quando viene collezionato
-
-        // Avvia il respawn dopo un periodo di tempo
-        StartCoroutine(RespawnObject());
+        if (playerInArea)
+        {
+            StartCoroutine(RespawnObject());
+        }
     }
 
     private IEnumerator RespawnObject()
     {
+
         yield return new WaitForSeconds(respawnDelay);
-        SpawnObject();
+        if (/*currentObject == null &&*/ playerInArea) // Verifica se non c'è già un oggetto attivo e se il giocatore è ancora nell'area
+        {
+            SpawnObject();
+        }
     }
 
-    private Vector3 GetRandomPositionInArea()
+    private Vector3 GetRandomSpawnPoint()
     {
         if (spawnPoints.Length > 0)
         {

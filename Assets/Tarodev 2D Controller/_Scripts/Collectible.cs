@@ -23,8 +23,7 @@ public class Collectible : MonoBehaviour
             {
                 player.CollectibleCollected();
                 gameObject.SetActive(false); // Disabilita il collezionabile
-                allCollectibles.Remove(this); // Rimuovi il collezionabile dalla lista
-                OnCollected?.Invoke(this); // Invoca l'evento OnCollected
+                //allCollectibles.Remove(this); // Rimuovi il collezionabile dalla lista
             }
         }
     }
