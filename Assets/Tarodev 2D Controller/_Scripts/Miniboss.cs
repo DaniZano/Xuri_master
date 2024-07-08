@@ -13,11 +13,7 @@ public class Miniboss : MonoBehaviour
     private float nextFireTime = 0f;
     private bool isActive = false; // Stato di attivazione del miniboss
 
-    bool IsColliderTrigger(Collider2D collider)
-    {
-        // Controlla se il collider è un trigger
-        return collider.isTrigger;
-    }
+   
 
 
     void Update()
@@ -42,26 +38,26 @@ public class Miniboss : MonoBehaviour
         rb.velocity = direction * laserSpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        // Attiva il miniboss se il giocatore entra nel trigger
-        if (other.CompareTag("Player"))
+        // Attiva il miniboss se il giocatore entra nel collider di attivazione
+        if (other == activationTrigger)
         {
-            Debug.Log("Dentro");
             isActive = true;
+            Debug.Log("Giocatore entrato nel trigger di attivazione!");
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
-        // Disattiva il miniboss se il giocatore esce dal trigger
-        if (other.CompareTag("Player"))
+        // Disattiva il miniboss se il giocatore esce dal collider di attivazione
+        if (other == activationTrigger)
         {
-            Debug.Log("Fuori");
             isActive = false;
+            Debug.Log("Giocatore uscito dal trigger di attivazione!");
         }
     }
 
-   
+
 
 }
