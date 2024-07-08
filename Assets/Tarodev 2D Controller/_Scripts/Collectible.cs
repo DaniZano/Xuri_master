@@ -1,10 +1,13 @@
 using UnityEngine;
+using System;
 using TarodevController;
 using System.Collections.Generic;
 
 public class Collectible : MonoBehaviour
 {
     private static List<Collectible> allCollectibles = new List<Collectible>();
+
+    public static event Action<Collectible> OnCollected; // Evento statico per segnalare il collezionabile raccolto
 
     private void Awake()
     {
@@ -20,6 +23,8 @@ public class Collectible : MonoBehaviour
             {
                 player.CollectibleCollected();
                 gameObject.SetActive(false); // Disabilita il collezionabile
+                allCollectibles.Remove(this); // Rimuovi il collezionabile dalla lista
+                OnCollected?.Invoke(this); // Invoca l'evento OnCollected
             }
         }
     }
@@ -32,4 +37,3 @@ public class Collectible : MonoBehaviour
         }
     }
 }
-
