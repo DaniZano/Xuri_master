@@ -187,8 +187,6 @@ namespace TarodevController
             }
 
             
-            
-
 
             _jumpToConsume = false;
         }

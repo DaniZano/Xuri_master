@@ -38,7 +38,7 @@ public class PlatformsWithLight : MonoBehaviour
 
     void Update()
     {
-        if (canActivate && Input.GetKeyDown(keyToPress))
+        if (canActivate && (Input.GetKeyDown(keyToPress) || Input.GetButtonDown("Fire1")))
         {
             if (playerController != null && playerController.HasCollectibles())
             {

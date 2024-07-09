@@ -1,0 +1,80 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "345fcc83-9ee5-43f1-b1a4-bce22409f553",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "024fb1f8-e819-446f-8925-a8661b0a6e4f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "2220bcfa-8ed2-455e-b084-a6951834e320",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Light",
+                    "type": "Button",
+                    "id": "05641899-19f5-40dd-afa7-16f7c77e148a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "80e1cd7d-7f56-4a20-9d8c-bfea4f483b80",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Light",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d325ee3f-6e5c-4deb-8cd0-64a4a3c0d24d",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52b3e9d2-f2bd-4dbb-bcc3-c99236381aa1",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "c898c968-2a8c-4533-8df6-d3795dc14e01",
+            "actions": [],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": []
+}

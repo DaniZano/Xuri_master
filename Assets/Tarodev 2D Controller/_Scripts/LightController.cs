@@ -1,5 +1,6 @@
 using UnityEngine;
 using TarodevController;
+using System;
 
 public class LightController : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class LightController : MonoBehaviour
 
     private PlayerController playerController;
 
+    #region Interface
+
+    
+    public event Action LightUp;
+
+    #endregion
+
     private void Start()
     {
         playerController = GetComponentInParent<PlayerController>();
@@ -27,6 +35,8 @@ public class LightController : MonoBehaviour
 
     private void Update()
     {
+
+
         // Diminuzione del range della luce nel tempo
         if (pointLight.range > minRange)
         {
@@ -34,7 +44,7 @@ public class LightController : MonoBehaviour
         }
 
         // Aumento del range della luce quando si preme "Ctrl" e uccisione dei nemici nel raggio
-        if ((Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl)) && playerController.UseCollectible())
+        if ((Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl) || Input.GetButtonDown("Fire1") && playerController.UseCollectible()))
         {
             ResetLightAndKillEnemies();
         }
@@ -53,6 +63,7 @@ public class LightController : MonoBehaviour
         CheckForDeath();
     }
 
+    
     private void ResetLightAndKillEnemies()
     {
         pointLight.range = resetRange;
