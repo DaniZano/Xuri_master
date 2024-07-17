@@ -1,6 +1,7 @@
 using System.Collections;
 using System;
 using UnityEngine;
+using static System.TimeZoneInfo;
 
 namespace TarodevController
 {
@@ -29,6 +30,9 @@ namespace TarodevController
         private LightController lightController;
 
         public Animator animator;
+
+        public Animator transitionAnimator; // Assegna l'animatore del panel nel Canvas
+        public float transitionTime = 1f;
 
 
 
@@ -307,7 +311,26 @@ namespace TarodevController
             FallingPlatformManager.ResetAllPlatforms();
 
 
+            StartCoroutine(RespawnRoutine());
 
+        }
+
+        private IEnumerator RespawnRoutine()
+        {
+            // Avvia la transizione di fade out
+            transitionAnimator.SetTrigger("FadeOut");
+
+            // Aspetta che la transizione sia completata
+            yield return new WaitForSeconds(transitionTime);
+
+            // Respawna il personaggio
+            transform.position = respawnPoint.position;
+
+            // Avvia la transizione di fade in
+            transitionAnimator.SetTrigger("FadeIn");
+
+            // Aspetta che la transizione sia completata
+            yield return new WaitForSeconds(transitionTime);
         }
 
         #endregion
