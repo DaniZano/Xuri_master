@@ -14,6 +14,7 @@ namespace TarodevController
         private FrameInput _frameInput;
         private Vector2 _frameVelocity;
         private bool _cachedQueryStartInColliders;
+        [SerializeField]
 
         private bool _facingRight = true;
 
@@ -339,7 +340,7 @@ namespace TarodevController
 
         public static event Action OnCollected;
 
-        private int collectibleCount = 0;
+        [SerializeField] private int collectibleCount = 0;
 
         public void CollectibleCollected()
         {
