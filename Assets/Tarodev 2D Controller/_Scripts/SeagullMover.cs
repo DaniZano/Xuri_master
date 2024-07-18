@@ -90,3 +90,6 @@ public class SeagullMover : MonoBehaviour
         return waitingForPlayer;
     }
 }
+
+
+
