@@ -352,13 +352,14 @@ namespace TarodevController
         {
             if (collectibleCount > 0)
             {
+                Debug.Log("Riduci");
                 collectibleCount--;
                 return true;
             }
             return false;
         }
 
-        public bool HasCollectibles()
+        public bool HasCollectibles() 
         {
             return collectibleCount > 0;
         }

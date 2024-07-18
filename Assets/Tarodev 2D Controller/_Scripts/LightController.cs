@@ -44,7 +44,7 @@ public class LightController : MonoBehaviour
         }
 
         // Aumento del range della luce quando si preme "Ctrl" e uccisione dei nemici nel raggio
-        if ((Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl) || Input.GetButtonDown("Fire1") && playerController.UseCollectible()))
+        if ((Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl) || Input.GetButtonDown("Fire1")) && playerController.UseCollectible())
         {
             ResetLightAndKillEnemies();
         }

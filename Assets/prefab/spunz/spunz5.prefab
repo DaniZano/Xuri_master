@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7923158944529903829}
   - component: {fileID: 7255763645107833429}
+  - component: {fileID: 3357732332040670646}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -61,7 +62,7 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -75,6 +76,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &3357732332040670646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816572794185958745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696e86bf154f0ee438fd52d3f4cee6be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider2D: {fileID: 7255763645107833429}
 --- !u!1001 &937655682046198024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,15 +177,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 822f18580f5a5414d87f8e06cc4470cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3203.3386
+      value: 131.46567
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 822f18580f5a5414d87f8e06cc4470cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 328.8
+      value: -9.7269745
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 822f18580f5a5414d87f8e06cc4470cb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.1
+      value: 28.079996
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 822f18580f5a5414d87f8e06cc4470cb, type: 3}
       propertyPath: m_LocalRotation.w
