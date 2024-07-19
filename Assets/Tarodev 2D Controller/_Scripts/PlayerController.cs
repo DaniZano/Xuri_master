@@ -35,7 +35,9 @@ namespace TarodevController
         public Animator transitionAnimator; // Assegna l'animatore del panel nel Canvas
         public float transitionTime = 1f;
 
-
+        //nemico inseguitore
+        public PlayerPath playerPath; // Riferimento allo script del percorso del personaggio
+        public EnemyFollowPath enemyFollowPath; // Riferimento allo script del nemico
 
 
 
@@ -310,6 +312,9 @@ namespace TarodevController
             collectibleCount = 0;
             Collectible.CollectiblesReappear();
             FallingPlatformManager.ResetAllPlatforms();
+
+            playerPath.ResetPath(); //reset path personaggio
+            enemyFollowPath.ResetEnemy(); //reset path nemico inseguitore
 
 
             StartCoroutine(RespawnRoutine());

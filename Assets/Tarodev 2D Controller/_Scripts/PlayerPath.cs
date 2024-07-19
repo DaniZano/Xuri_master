@@ -5,7 +5,7 @@ public class PlayerPath : MonoBehaviour
 {
     public float pathUpdateInterval = 0.1f;
     public List<Vector3> pathPoints = new List<Vector3>();
-    public bool isTracking = false; // Determina se il percorso viene tracciato
+    public bool isTracking = false;
 
     private float timeSinceLastUpdate = 0f;
 
@@ -27,8 +27,15 @@ public class PlayerPath : MonoBehaviour
     {
         if (other.CompareTag("StartTrackingZone"))
         {
-            Debug.Log("Tracciando");
-            isTracking = true; // Inizia a tracciare il percorso
+            isTracking = true;
+            Debug.Log("Tracking started!");
         }
+    }
+
+    public void ResetPath()
+    {
+        isTracking = false;
+        pathPoints.Clear();
+        Debug.Log("Path reset!");
     }
 }
