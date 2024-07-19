@@ -22,31 +22,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -860.53796
+      value: -1763.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.036641
+      value: 237.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.6
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70308393
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7111069
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90.65
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -331,6 +331,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c27b5e5cf44f534482867cb0de0bf37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 8
   patrolDistance: 6
-  stunDuration: 5
