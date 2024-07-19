@@ -304,6 +304,13 @@ namespace TarodevController
 
         public void Respawn()
         {
+
+
+            StartCoroutine(RespawnRoutine());
+
+            playerPath.ResetPath();
+            enemyFollowPath.ResetEnemy();
+
             transform.position = respawnPoint.position;
             _rb.velocity = Vector2.zero;
             _frameVelocity = Vector2.zero;
@@ -313,11 +320,7 @@ namespace TarodevController
             Collectible.CollectiblesReappear();
             FallingPlatformManager.ResetAllPlatforms();
 
-            playerPath.ResetPath(); //reset path personaggio
-            enemyFollowPath.ResetEnemy(); //reset path nemico inseguitore
 
-
-            StartCoroutine(RespawnRoutine());
 
         }
 
@@ -337,6 +340,8 @@ namespace TarodevController
 
             // Aspetta che la transizione sia completata
             yield return new WaitForSeconds(transitionTime);
+
+            transitionAnimator.SetTrigger("Normal");
         }
 
         #endregion

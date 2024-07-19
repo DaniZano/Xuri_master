@@ -46,11 +46,18 @@ public class EnemyFollowPath : MonoBehaviour
         Debug.Log("Following started!");
     }
 
+    public void StopFollowing()
+    {
+        isFollowing = false;
+        pathQueue.Clear();
+        Debug.Log("Following stopped!");
+    }
+
     public void ResetEnemy()
     {
         isFollowing = false;
         pathQueue.Clear();
         transform.position = initialPosition;
-        Debug.Log("Enemy reset!");
+        Debug.Log("Enemy reset to initial position: " + initialPosition);
     }
 }
