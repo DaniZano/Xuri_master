@@ -3,12 +3,18 @@ using System.Collections.Generic;
 
 public class EnemyFollowPath : MonoBehaviour
 {
-    public PlayerPath playerPath;
-    public float speed = 2.0f;
-    public float waypointThreshold = 0.1f;
-    public bool isFollowing = false;
+    public PlayerPath playerPath; // Riferimento allo script del personaggio
+    public float speed = 2.0f; // Velocità di movimento del nemico
+    public float waypointThreshold = 0.1f; // Distanza per considerare raggiunto un punto
+    public Vector3 initialPosition; // Posizione iniziale del nemico
+    private bool isFollowing = false; // Determina se il nemico sta seguendo il percorso
 
     private Queue<Vector3> pathQueue = new Queue<Vector3>();
+
+    private void Start()
+    {
+        initialPosition = transform.position; // Salva la posizione iniziale del nemico
+    }
 
     private void Update()
     {
@@ -34,12 +40,17 @@ public class EnemyFollowPath : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void StartFollowing()
     {
-        if (other.CompareTag("StartFollowingZone"))
-        {
-            Debug.Log("Segui segui");
-            isFollowing = true;
-        }
+        isFollowing = true;
+        Debug.Log("Following started!");
+    }
+
+    public void ResetEnemy()
+    {
+        isFollowing = false;
+        pathQueue.Clear();
+        transform.position = initialPosition;
+        Debug.Log("Enemy reset!");
     }
 }
