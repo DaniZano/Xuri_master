@@ -22,6 +22,10 @@ namespace TarodevController
         public Transform respawnPoint;
         public float deathYLevel = -10f;
         public Vector3 cameraOffset; // Offset per la posizione della camera
+        public float respawnDelay = 1f; // Tempo di ritardo prima del respawn
+        private bool _isRespawning; // Variabile per tenere traccia dello stato di respawn
+
+
 
 
         // Double jump related variables
@@ -33,7 +37,7 @@ namespace TarodevController
         public Animator animator;
 
         public Animator transitionAnimator; // Assegna l'animatore del panel nel Canvas
-        public float transitionTime = 1f;
+        public float transitionTime = 0f;
 
         //nemico inseguitore
         public PlayerPath playerPath; // Riferimento allo script del percorso del personaggio
@@ -77,6 +81,9 @@ namespace TarodevController
 
         private void GatherInput()
         {
+            if (_isRespawning) return; // Ignora l'input se il giocatore è in respawn
+
+
             _frameInput = new FrameInput
             {
                 JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C),
@@ -99,6 +106,9 @@ namespace TarodevController
 
         private void FixedUpdate()
         {
+
+            if (_isRespawning) return;
+
             CheckCollisions();
 
             HandleJump();
@@ -308,9 +318,14 @@ namespace TarodevController
 
             StartCoroutine(RespawnRoutine());
 
+            //transitionAnimator.SetTrigger("FadeOut");
+            //transitionAnimator.SetTrigger("FadeIn");
+            //transitionAnimator.SetTrigger("Normal");
+
             playerPath.ResetPath();
             enemyFollowPath.ResetEnemy();
 
+           
             transform.position = respawnPoint.position;
             _rb.velocity = Vector2.zero;
             _frameVelocity = Vector2.zero;
@@ -326,14 +341,17 @@ namespace TarodevController
 
         private IEnumerator RespawnRoutine()
         {
+
+            _isRespawning = true; // Inizia il respawn
             // Avvia la transizione di fade out
             transitionAnimator.SetTrigger("FadeOut");
 
             // Aspetta che la transizione sia completata
-            yield return new WaitForSeconds(transitionTime);
+            //yield return new WaitForSeconds(transitionTime); 
+
+            
 
             // Respawna il personaggio
-            transform.position = respawnPoint.position;
 
             // Avvia la transizione di fade in
             transitionAnimator.SetTrigger("FadeIn");
@@ -342,6 +360,13 @@ namespace TarodevController
             yield return new WaitForSeconds(transitionTime);
 
             transitionAnimator.SetTrigger("Normal");
+
+            yield return new WaitForSeconds(respawnDelay);
+            //transform.position = respawnPoint.position;
+            yield return new WaitForSeconds(respawnDelay);
+
+            _isRespawning = false; // Termina il respawn
+
         }
 
         #endregion
@@ -376,8 +401,12 @@ namespace TarodevController
 
         #endregion
 
-        private void ApplyMovement() => _rb.velocity = _frameVelocity;
-
+        //private void ApplyMovement() => _rb.velocity = _frameVelocity;
+        private void ApplyMovement()
+        {
+            if (_isRespawning) return; // Ignora il movimento se il giocatore è in respawn
+            _rb.velocity = _frameVelocity;
+        }
 #if UNITY_EDITOR
         private void OnValidate()
         {
