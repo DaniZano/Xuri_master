@@ -7,6 +7,8 @@ public class TriggerAnimation : MonoBehaviour
     public string triggerAnimationName = "KILLING_EVILHAND"; // Nome dell'animazione da riprodurre una volta
     public GameObject player; // Riferimento al GameObject del giocatore
     public Collider2D triggerCollider2D; // Riferimento al BoxCollider trigger
+    public float animationSpeed = 1.0f; // Velocità dell'animazione
+    public float startTime = 0.0f; // Tempo di inizio dell'animazione (0.0f = inizio, 1.0f = fine)
 
     void Start()
     {
@@ -28,9 +30,19 @@ public class TriggerAnimation : MonoBehaviour
             if (anim != null)
             {
                 anim.Stop(loopAnimationName);
+
+                // Imposta la velocità dell'animazione
+                AnimationState state = anim[triggerAnimationName];
+                state.speed = animationSpeed;
+
+                // Imposta il tempo di inizio dell'animazione
+                state.time = startTime * state.length;
+
+                // Riproduci l'animazione
                 anim.Play(triggerAnimationName);
             }
         }
     }
 }
+
 

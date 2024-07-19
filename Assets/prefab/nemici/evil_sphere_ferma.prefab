@@ -1,0 +1,318 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2383534645246319501
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 18.960094
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 18.960094
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 18.960094
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -884.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_Name
+      value: evil_sphere_ferma
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153556343539822219, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: -842609562734502684, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+    - target: {fileID: 2223639932434330405, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 8304689429869550292, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+    - target: {fileID: 2223639932434330405, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: -842609562734502684, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+    - target: {fileID: 2223639932434330405, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      propertyPath: m_Animations.Array.data[2]
+      value: 
+      objectReference: {fileID: 8845133696182178684, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+    - {fileID: -8700617353114198275, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7484394692670823607}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2369647228259878979}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7779038300315322611}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5570930757219617979}
+    - targetCorrespondingSourceObject: {fileID: -176803732477535456, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 584201649782127859}
+    - targetCorrespondingSourceObject: {fileID: -176803732477535456, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5832397448923468513}
+    - targetCorrespondingSourceObject: {fileID: -176803732477535456, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5131773848780166993}
+    - targetCorrespondingSourceObject: {fileID: -176803732477535456, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1890504926456469706}
+  m_SourcePrefab: {fileID: 100100000, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+--- !u!1 &3302666781381060316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+  m_PrefabInstance: {fileID: 2383534645246319501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &7484394692670823607
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3302666781381060316}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &2369647228259878979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3302666781381060316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130384d73c94644f987e8723a90ce940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: IDOLLOOP_EVILSPHERE
+--- !u!114 &7779038300315322611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3302666781381060316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61090aba6ceb4227b053fa2b451f7a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loopAnimationName: IDOLLOOP_EVILSPHERE
+  triggerAnimationName: KILLING_EVILSPHERE
+  player: {fileID: 0}
+  triggerCollider2D: {fileID: 7484394692670823607}
+  animationSpeed: 5
+  startTime: 0
+--- !u!114 &5570930757219617979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3302666781381060316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d4c37ca9f3f5142b5902c60ba9150f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerCollider2D: {fileID: 7484394692670823607}
+  killDelay: 0.2
+--- !u!1 &6674292663200039085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -176803732477535456, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+  m_PrefabInstance: {fileID: 2383534645246319501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &584201649782127859
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674292663200039085}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: -842609562734502684, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+  m_Animations:
+  - {fileID: 8304689429869550292, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+  - {fileID: -842609562734502684, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!61 &5832397448923468513
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674292663200039085}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00026455286, y: -0.00019380073}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.024427956, y: 0.02434143}
+  m_EdgeRadius: 0
+--- !u!114 &5131773848780166993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674292663200039085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130384d73c94644f987e8723a90ce940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: IDOLLOOP_EVILSPHERE
+--- !u!114 &1890504926456469706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674292663200039085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61090aba6ceb4227b053fa2b451f7a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loopAnimationName: IDOLLOOP_EVILSPHERE
+  triggerAnimationName: KILLING_EVILSPHERE
+  player: {fileID: 0}
+  triggerCollider2D: {fileID: 5832397448923468513}
+  animationSpeed: 1
+  startTime: 0
