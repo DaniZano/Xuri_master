@@ -74,8 +74,8 @@ EdgeCollider2D:
   - {x: 0.0053801807, y: 0.7565684}
   - {x: 0.0072085196, y: 0.4616916}
   - {x: 0.007289403, y: -0.5001945}
-  - {x: -0.0070104827, y: -0.5168244}
-  - {x: -0.0068839123, y: -0.542094}
+  - {x: 0.007020184, y: -0.5157719}
+  - {x: 0.007097143, y: 0.39669442}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -121,15 +121,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf2059bd97d77354fb2f1a9ce985eb58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2509.1
+      value: -25.23938
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf2059bd97d77354fb2f1a9ce985eb58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 384.6
+      value: 27.137772
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf2059bd97d77354fb2f1a9ce985eb58, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.22141455
+      value: 46.09052
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf2059bd97d77354fb2f1a9ce985eb58, type: 3}
       propertyPath: m_LocalRotation.w
@@ -141,11 +141,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf2059bd97d77354fb2f1a9ce985eb58, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf2059bd97d77354fb2f1a9ce985eb58, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf2059bd97d77354fb2f1a9ce985eb58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
