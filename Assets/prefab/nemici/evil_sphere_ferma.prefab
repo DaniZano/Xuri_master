@@ -10,27 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalScale.x
-      value: 18.960094
+      value: 12.759575
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalScale.y
-      value: 18.960094
+      value: 12.759575
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalScale.z
-      value: 18.960094
+      value: 12.759575
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -884.6
+      value: -463.6195
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: -17.764214
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.7
+      value: 7.3815
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalRotation.w
@@ -171,7 +171,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.76, y: 0.75}
   m_EdgeRadius: 0
 --- !u!114 &2369647228259878979
 MonoBehaviour:
@@ -202,7 +202,7 @@ MonoBehaviour:
   triggerAnimationName: KILLING_EVILSPHERE
   player: {fileID: 0}
   triggerCollider2D: {fileID: 7484394692670823607}
-  animationSpeed: 5
+  animationSpeed: 4
   startTime: 0
 --- !u!114 &5570930757219617979
 MonoBehaviour:
