@@ -25,6 +25,12 @@ namespace TarodevController
         public float respawnDelay = 1f; // Tempo di ritardo prima del respawn
         private bool _isRespawning; // Variabile per tenere traccia dello stato di respawn
 
+        // Audio variables
+        public AudioClip jumpSound;
+        public AudioClip collectibleSound;
+        public AudioClip useCollectibleSound;
+        public AudioClip respawnSound;
+        private AudioSource audioSource;
 
 
 
@@ -69,6 +75,7 @@ namespace TarodevController
 
             lightController = GetComponentInChildren<LightController>();
 
+            audioSource = GetComponent<AudioSource>();
 
 
         }
@@ -200,10 +207,11 @@ namespace TarodevController
             {
                 ExecuteJump();
                 animator.SetTrigger("Jump");
+                audioSource.PlayOneShot(jumpSound); // Riproduci il suono del salto
 
             }
 
-            
+
 
             _jumpToConsume = false;
         }
@@ -341,6 +349,7 @@ namespace TarodevController
 
         private IEnumerator RespawnRoutine()
         {
+            audioSource.PlayOneShot(respawnSound); // Riproduci il suono del salto
 
             _isRespawning = true; // Inizia il respawn
             // Avvia la transizione di fade out
@@ -355,7 +364,7 @@ namespace TarodevController
 
             // Avvia la transizione di fade in
             transitionAnimator.SetTrigger("FadeIn");
-
+            _isRespawning = false; // Termina il respawn
             // Aspetta che la transizione sia completata
             yield return new WaitForSeconds(transitionTime);
 
@@ -365,7 +374,7 @@ namespace TarodevController
             //transform.position = respawnPoint.position;
             yield return new WaitForSeconds(respawnDelay);
 
-            _isRespawning = false; // Termina il respawn
+            
 
         }
 
@@ -381,6 +390,8 @@ namespace TarodevController
         {
             collectibleCount++;
             OnCollected?.Invoke();
+            audioSource.PlayOneShot(collectibleSound); // Riproduci il suono del collezionabile raccolto
+
         }
 
         public bool UseCollectible()
@@ -389,6 +400,8 @@ namespace TarodevController
             {
                 Debug.Log("Riduci");
                 collectibleCount--;
+                audioSource.PlayOneShot(useCollectibleSound); // Riproduci il suono del collezionabile utilizzato
+
                 return true;
             }
             return false;
