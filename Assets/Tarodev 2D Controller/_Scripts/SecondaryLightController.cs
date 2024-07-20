@@ -36,12 +36,17 @@ public class SecondaryLightController : MonoBehaviour
 
     void SyncColliderWithLightRange()
     {
-        circleCollider.radius = pointLight.range;
+        // Ottieni la scala dell'oggetto genitore
+        float parentScale = transform.parent != null ? transform.parent.localScale.x : 1f; // Assumendo scala uniforme
+        float inverseScale = 1f / parentScale;
+        circleCollider.radius = pointLight.range * inverseScale;
     }
 
     bool HasLightRangeChanged()
     {
-        return Mathf.Abs(circleCollider.radius - pointLight.range) > Mathf.Epsilon;
+        float parentScale = transform.parent != null ? transform.parent.localScale.x : 1f; // Assumendo scala uniforme
+        float inverseScale = 1f / parentScale;
+        return Mathf.Abs(circleCollider.radius - (pointLight.range * inverseScale)) > Mathf.Epsilon;
     }
 
     void OnTriggerEnter2D(Collider2D other)

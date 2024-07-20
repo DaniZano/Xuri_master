@@ -364,17 +364,17 @@ namespace TarodevController
 
             // Avvia la transizione di fade in
             transitionAnimator.SetTrigger("FadeIn");
-            _isRespawning = false; // Termina il respawn
             // Aspetta che la transizione sia completata
             yield return new WaitForSeconds(transitionTime);
 
             transitionAnimator.SetTrigger("Normal");
+            
 
             yield return new WaitForSeconds(respawnDelay);
             //transform.position = respawnPoint.position;
             yield return new WaitForSeconds(respawnDelay);
+            _isRespawning = false; // Termina il respawn
 
-            
 
         }
 
