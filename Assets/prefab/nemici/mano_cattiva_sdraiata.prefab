@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdf6673145a0b46e5a086443b53ea492, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1205.8
+      value: -857.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdf6673145a0b46e5a086443b53ea492, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdf6673145a0b46e5a086443b53ea492, type: 3}
       propertyPath: m_LocalPosition.z
@@ -177,7 +177,7 @@ MonoBehaviour:
   triggerAnimationName: KILLING_EVILHAND
   player: {fileID: 0}
   triggerCollider2D: {fileID: 7632159677291151687}
-  animationSpeed: 1
+  animationSpeed: 1.2
   startTime: 0
 --- !u!68 &7632159677291151687
 EdgeCollider2D:
