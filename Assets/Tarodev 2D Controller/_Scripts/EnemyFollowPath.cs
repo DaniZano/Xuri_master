@@ -10,6 +10,7 @@ public class EnemyFollowPath : MonoBehaviour
     private bool isFollowing = false; // Determina se il nemico sta seguendo il percorso
 
     private Queue<Vector3> pathQueue = new Queue<Vector3>();
+    private bool isFacingRight = true; // Stato corrente della direzione del nemico
 
     private void Start()
     {
@@ -36,8 +37,27 @@ public class EnemyFollowPath : MonoBehaviour
                 {
                     pathQueue.Dequeue();
                 }
+
+                // Logica di flipping
+                if (currentWaypoint.x > transform.position.x && !isFacingRight)
+                {
+                    Flip();
+                }
+                else if (currentWaypoint.x < transform.position.x && isFacingRight)
+                {
+                    Flip();
+                }
             }
         }
+    }
+
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1; // Inverte la scala sull'asse X per flippare
+        transform.localScale = theScale;
+        Debug.Log("Enemy flipped. Now facing " + (isFacingRight ? "right" : "left"));
     }
 
     public void StartFollowing()
