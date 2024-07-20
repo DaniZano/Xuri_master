@@ -10569,6 +10569,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1702068885 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1585840872566501380, guid: d09ef68438f457149878930d3800880d, type: 3}
+  m_PrefabInstance: {fileID: 8399549539713670179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1761136431
 GameObject:
   m_ObjectHideFlags: 0
@@ -13269,6 +13274,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1585840872566501380, guid: d09ef68438f457149878930d3800880d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585840872566501380, guid: d09ef68438f457149878930d3800880d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.07
+      objectReference: {fileID: 0}
     - target: {fileID: 1868163056666612211, guid: d09ef68438f457149878930d3800880d, type: 3}
       propertyPath: m_Name
       value: Miniboss
@@ -13277,6 +13290,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 358915715}
+    - target: {fileID: 6417052116863138971, guid: d09ef68438f457149878930d3800880d, type: 3}
+      propertyPath: laserOrigin
+      value: 
+      objectReference: {fileID: 1702068885}
     - target: {fileID: 6417052116863138971, guid: d09ef68438f457149878930d3800880d, type: 3}
       propertyPath: laserPrefab
       value: 

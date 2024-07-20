@@ -9,12 +9,10 @@ public class Miniboss : MonoBehaviour
     public float fireRate = 2f; // Intervallo di tempo tra un colpo e l'altro
     public float laserSpeed = 10f; // Velocità del laser
     public Collider2D activationTrigger; // Collider di attivazione
+    public Transform laserOrigin; // Punto di origine per i laser
 
     private float nextFireTime = 0f;
     private bool isActive = false; // Stato di attivazione del miniboss
-
-   
-
 
     void Update()
     {
@@ -22,7 +20,6 @@ public class Miniboss : MonoBehaviour
         if (isActive && Time.time > nextFireTime)
         {
             FireLaser();
-            Debug.Log("Sparaaaa");
             nextFireTime = Time.time + fireRate;
         }
     }
@@ -30,12 +27,22 @@ public class Miniboss : MonoBehaviour
     void FireLaser()
     {
         // Calcola la direzione verso il giocatore
-        Vector3 direction = (player.transform.position - transform.position).normalized;
+        Vector3 direction = (player.transform.position - laserOrigin.position).normalized;
 
         // Crea il laser e imposta la direzione e velocità
-        GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+        GameObject laser = Instantiate(laserPrefab, laserOrigin.position, Quaternion.identity);
+        Debug.Log("Laser creato a posizione: " + laserOrigin.position);
         Rigidbody2D rb = laser.GetComponent<Rigidbody2D>();
-        rb.velocity = direction * laserSpeed;
+
+        if (rb != null)
+        {
+            rb.velocity = direction * laserSpeed;
+            Debug.Log("Velocità del laser impostata a: " + (direction * laserSpeed));
+        }
+        else
+        {
+            Debug.LogError("Rigidbody2D non trovato nel prefab del laser.");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -44,6 +51,7 @@ public class Miniboss : MonoBehaviour
         if (other.gameObject == player)
         {
             isActive = true;
+            Debug.Log("Giocatore entrato nel trigger, miniboss attivato.");
         }
     }
 
@@ -53,9 +61,7 @@ public class Miniboss : MonoBehaviour
         if (other.gameObject == player)
         {
             isActive = false;
+            Debug.Log("Giocatore uscito dal trigger, miniboss disattivato.");
         }
     }
-
-
-
 }
