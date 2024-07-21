@@ -35539,8 +35539,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7763254501000612024, guid: a065dc4d0d209409e91540dff90fa700, type: 3}
   m_PrefabInstance: {fileID: 6704206426857202972}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
   m_GameObject: {fileID: 1909652183}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -35651,7 +35649,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
->>>>>>> Stashed changes
 --- !u!1 &1409755918 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8290487247750281756, guid: dd293b6a21c494a4ca523abb5088e688, type: 3}
