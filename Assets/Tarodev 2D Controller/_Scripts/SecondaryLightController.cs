@@ -21,7 +21,7 @@ public class SecondaryLightController : MonoBehaviour
         // Imposta le proprietà della luce per essere nette e definite
         pointLight.range = netRange;
         pointLight.intensity = netIntensity;
-        pointLight.shadows = LightShadows.Hard;  // Usa ombre dure per maggiore definizione
+        //pointLight.shadows = LightShadows.Soft;  // Usa ombre dure per maggiore definizione
 
         SyncColliderWithLightRange();
     }

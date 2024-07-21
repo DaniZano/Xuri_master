@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class FallingPlatformManager : MonoBehaviour
 {
-    private static List<FallingPlatform> platforms = new List<FallingPlatform>();
+
+
+    [SerializeField] private static List<FallingPlatform> platforms = new List<FallingPlatform>();
 
     public static void RegisterPlatform(FallingPlatform platform)
     {
