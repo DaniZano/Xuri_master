@@ -10,27 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalScale.x
-      value: 12.759575
+      value: 9.037863
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalScale.y
-      value: 12.759575
+      value: 9.037863
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalScale.z
-      value: 12.759575
+      value: 9.037863
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -463.6195
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.764214
+      value: 34.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.3815
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       propertyPath: m_LocalRotation.w
@@ -109,7 +109,7 @@ PrefabInstance:
       addedObject: {fileID: 7779038300315322611}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5570930757219617979}
+      addedObject: {fileID: 2667955986399386357}
     - targetCorrespondingSourceObject: {fileID: -176803732477535456, guid: a3083d4c53bab41dd98ff7ad54ae8885, type: 3}
       insertIndex: -1
       addedObject: {fileID: 584201649782127859}
@@ -204,7 +204,7 @@ MonoBehaviour:
   triggerCollider2D: {fileID: 7484394692670823607}
   animationSpeed: 4
   startTime: 0
---- !u!114 &5570930757219617979
+--- !u!114 &2667955986399386357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3302666781381060316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d4c37ca9f3f5142b5902c60ba9150f, type: 3}
+  m_Script: {fileID: 11500000, guid: 987ac59b400e95b4a8bcb6bee75244c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCollider2D: {fileID: 7484394692670823607}
