@@ -21,10 +21,13 @@ public class Miniboss : MonoBehaviour
     private int currentHealth; // Salute attuale del miniboss
     private bool playerInPowerArea = false; // Stato del giocatore nell'area del potere
     private bool isDefeated = false; // Stato del miniboss (sconfitto o meno)
+    public float laserLifetime = 5f; // Durata del laser in secondi
+
+    //private List<GameObject> lasers = new List<GameObject>(); // Lista per tracciare i laser creati
 
 
     public PlayerController playerController;
-    
+
 
     void Start()
     {
@@ -65,6 +68,8 @@ public class Miniboss : MonoBehaviour
 
         // Crea il laser e imposta la direzione e velocità
         GameObject laser = Instantiate(laserPrefab, laserOrigin.position, Quaternion.identity);
+        //lasers.Add(laser); // Aggiungi il laser alla lista
+
         Debug.Log("Laser creato a posizione: " + laserOrigin.position);
         Rigidbody2D rb = laser.GetComponent<Rigidbody2D>();
 
@@ -76,6 +81,18 @@ public class Miniboss : MonoBehaviour
         else
         {
             Debug.LogError("Rigidbody2D non trovato nel prefab del laser.");
+        }
+
+        StartCoroutine(DestroyLaserAfterTime(laser, laserLifetime));
+
+    }
+
+    private IEnumerator DestroyLaserAfterTime(GameObject laser, float time)
+    {
+        yield return new WaitForSeconds(time);
+        if (laser != null)
+        {
+            Destroy(laser);
         }
     }
 
@@ -91,7 +108,7 @@ public class Miniboss : MonoBehaviour
         if (currentHealth <= 0)
         {
             // Logica per gestire la morte del miniboss
-            isDefeated = true; 
+            isDefeated = true;
             Debug.Log("Miniboss sconfitto!");
             // Puoi aggiungere animazioni di morte, disattivazione del miniboss, ecc.
         }
@@ -104,12 +121,12 @@ public class Miniboss : MonoBehaviour
         {
             //if (other == activationTrigger)
             //{
-                isActive = true;
-                Debug.Log("Giocatore entrato nel trigger, miniboss attivato.");
-                if (healthBar != null)
-                {
-                    healthBar.gameObject.SetActive(true); // Mostra la barra della salute
-                }
+            isActive = true;
+            Debug.Log("Giocatore entrato nel trigger, miniboss attivato.");
+            if (healthBar != null)
+            {
+                healthBar.gameObject.SetActive(true); // Mostra la barra della salute
+            }
             //}
         }
     }
@@ -121,12 +138,12 @@ public class Miniboss : MonoBehaviour
         {
             //if (other == activationTrigger)
             //{
-                isActive = false;
-                Debug.Log("Giocatore uscito dal trigger, miniboss disattivato.");
-                if (healthBar != null)
-                {
-                    healthBar.gameObject.SetActive(false); // Nascondi la barra della salute
-                }
+            isActive = false;
+            Debug.Log("Giocatore uscito dal trigger, miniboss disattivato.");
+            if (healthBar != null)
+            {
+                healthBar.gameObject.SetActive(false); // Nascondi la barra della salute
+            }
             //}
         }
     }
@@ -153,5 +170,19 @@ public class Miniboss : MonoBehaviour
             healthBar.value = currentHealth;
         }
         isDefeated = false;
+        //ClearLasers(); // Rimuovi i proiettili
+
     }
+
+    //void ClearLasers()
+    //{
+    //    foreach (var laser in lasers)
+    //    {
+    //        if (laser != null)
+    //        {
+    //            Destroy(laser);
+    //        }
+    //    }
+    //    lasers.Clear();
+    //}
 }

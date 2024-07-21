@@ -49,6 +49,7 @@ namespace TarodevController
         public PlayerPath playerPath; // Riferimento allo script del percorso del personaggio
         public EnemyFollowPath enemyFollowPath; // Riferimento allo script del nemico
 
+        public Miniboss miniboss;
 
 
         #region Interface
@@ -76,6 +77,7 @@ namespace TarodevController
             lightController = GetComponentInChildren<LightController>();
 
             audioSource = GetComponent<AudioSource>();
+
 
 
         }
@@ -322,6 +324,7 @@ namespace TarodevController
 
         public void Respawn()
         {
+            Debug.Log("Respawn chiamata da: " + Environment.StackTrace);
 
 
             StartCoroutine(RespawnRoutine());
@@ -333,7 +336,7 @@ namespace TarodevController
             playerPath.ResetPath();
             enemyFollowPath.ResetEnemy();
 
-           
+
             transform.position = respawnPoint.position;
             _rb.velocity = Vector2.zero;
             _frameVelocity = Vector2.zero;
@@ -342,14 +345,14 @@ namespace TarodevController
             collectibleCount = 0;
             Collectible.CollectiblesReappear();
             FallingPlatformManager.ResetAllPlatforms();
-
+            miniboss.ResetHealth();
 
 
         }
 
         private IEnumerator RespawnRoutine()
         {
-            audioSource.PlayOneShot(respawnSound); // Riproduci il suono del salto
+            audioSource.PlayOneShot(respawnSound); // Riproduci il suono del respawn
 
             _isRespawning = true; // Inizia il respawn
             // Avvia la transizione di fade out
