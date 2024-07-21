@@ -14086,6 +14086,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5662a33d10792814999f8157c589aeea, type: 3}
+--- !u!1 &420271974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 420271976}
+  - component: {fileID: 420271975}
+  m_Layer: 0
+  m_Name: VideoBackground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!328 &420271975
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420271974}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: e7c86496a8977466cb73b0de079ab4db, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 810982763}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 0
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!4 &420271976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420271974}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 303.59552, y: -2.015617, z: 24.045351}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &423987493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18382,6 +18450,7 @@ MonoBehaviour:
   transitionTime: 1
   playerPath: {fileID: 0}
   enemyFollowPath: {fileID: 0}
+  miniboss: {fileID: 0}
   collectibleCount: 0
 --- !u!70 &649719989
 CapsuleCollider2D:
@@ -23248,6 +23317,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9b9f05426d82bd44bf818778280b51f, type: 3}
+--- !u!20 &810982763 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8871359650463622097, guid: c9b9f05426d82bd44bf818778280b51f, type: 3}
+  m_PrefabInstance: {fileID: 810982762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &814835552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52775,3 +52849,4 @@ SceneRoots:
   - {fileID: 1838133375}
   - {fileID: 1906535689}
   - {fileID: 1628254734}
+  - {fileID: 420271976}
