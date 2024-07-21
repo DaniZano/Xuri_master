@@ -5,7 +5,7 @@ public class FallingPlatformManager : MonoBehaviour
 {
 
 
-    [SerializeField] private static List<FallingPlatform> platforms = new List<FallingPlatform>();
+    private static List<FallingPlatform> platforms = new List<FallingPlatform>();
 
     public static void RegisterPlatform(FallingPlatform platform)
     {
