@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1489,8 +1489,8 @@ MonoBehaviour:
   - {fileID: 131369112}
   - {fileID: 821635187}
   selector: {fileID: 1101467905}
-  moveSound: {fileID: 8300000, guid: 91e7f9571bd2442ed94a980c96cd29f5, type: 3}
-  selectSound: {fileID: 8300000, guid: 760cc5be0d8114280b42168af2721a60, type: 3}
+  moveSound: {fileID: 0}
+  selectSound: {fileID: 0}
   settingsOverlay: {fileID: 1847064896}
   volumeSlider: {fileID: 461604383}
   creditsCanvas: {fileID: 1842816527}
