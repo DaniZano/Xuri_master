@@ -136,7 +136,7 @@ public class UIMainMenu : MonoBehaviour
             verticalMoved = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Return)) //|| Input.GetButtonDown("Jump"))
         {
             SelectSlot(currentSlotIndex);
         }
