@@ -90,7 +90,7 @@ namespace TarodevController
 
         private void GatherInput()
         {
-            if (_isRespawning) return; // Ignora l'input se il giocatore è in respawn
+            if (_isRespawning) return; // Ignora l'input se il giocatore ï¿½ in respawn
 
 
             _frameInput = new FrameInput
@@ -159,7 +159,7 @@ namespace TarodevController
             if (!_grounded && groundHit)
             {
                 _grounded = true;
-                _jumpsRemaining = _maxJumps; // Reset dei salti quando il giocatore è a terra
+                _jumpsRemaining = _maxJumps; // Reset dei salti quando il giocatore ï¿½ a terra
                 _coyoteUsable = true;
                 _bufferedJumpUsable = true;
                 _endedJumpEarly = false;
@@ -178,7 +178,7 @@ namespace TarodevController
                 // Mantieni il conteggio dei salti rimanenti quando si lascia il terreno
                 if (_jumpsRemaining == _maxJumps)
                 {
-                    _jumpsRemaining = _maxJumps - 1; // Se non è stato utilizzato nessun salto
+                    _jumpsRemaining = _maxJumps - 1; // Se non ï¿½ stato utilizzato nessun salto
                 }
             }
 
@@ -235,7 +235,7 @@ namespace TarodevController
             
             else
             {
-                _jumpsRemaining--; // Decrementa il conteggio dei salti solo se si è in aria
+                _jumpsRemaining--; // Decrementa il conteggio dei salti solo se si ï¿½ in aria
             }
 
             _frameVelocity.y = _stats.JumpPower;
@@ -415,12 +415,17 @@ namespace TarodevController
             return collectibleCount > 0;
         }
 
+         public int GetCollectibleCount()
+        {
+            return collectibleCount;
+        }
+
         #endregion
 
         //private void ApplyMovement() => _rb.velocity = _frameVelocity;
         private void ApplyMovement()
         {
-            if (_isRespawning) return; // Ignora il movimento se il giocatore è in respawn
+            if (_isRespawning) return; // Ignora il movimento se il giocatore ï¿½ in respawn
             _rb.velocity = _frameVelocity;
         }
 #if UNITY_EDITOR
