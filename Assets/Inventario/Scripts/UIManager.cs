@@ -16,6 +16,10 @@ public class UIManager : MonoBehaviour
     private int currentPageIndex = -1; // Indice della pagina attualmente visualizzata
     private int currentSlotIndex = 0; // Indice dello slot attualmente selezionato
 
+    // Variabili di stato per tracciare lo stato corrente degli input del controller
+    private bool horizontalMoved = false;
+    private bool verticalMoved = false;
+
     void Awake()
     {
         if (Instance == null)
@@ -67,42 +71,63 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         // Controlla l'input della tastiera per aprire e chiudere l'inventario
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown("Fire3"))
         {
             ToggleDiaryUI();
         }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            if (singlePageView.activeSelf)
-            {
-                HideDiaryPage();
-            }
-            else if (diaryUI.activeSelf)
-            {
-                ToggleDiaryUI();
-            }
-        }
 
-        // Controlla l'input delle frecce e del tasto invio per selezionare gli slot
+        // Controlla l'input per selezionare gli oggetti solo quando l'inventario è aperto
         if (diaryUI.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Jump"))
+            {
+                if (singlePageView.activeSelf)
+                {
+                    HideDiaryPage();
+                }
+                else
+                {
+                    SelectSlot(currentSlotIndex);
+                }
+            }
+
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+            float dpadHorizontalInput = Input.GetAxis("DPadHorizontal");
+            float dpadVerticalInput = Input.GetAxis("DPadVertical");
+
+            // Input della tastiera
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || (!horizontalMoved && horizontalInput < -0.5f) || (!horizontalMoved && dpadHorizontalInput < -0.5f))
             {
                 MoveSelector(-1);
+                horizontalMoved = true;
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow) || (!horizontalMoved && horizontalInput > 0.5f) || (!horizontalMoved && dpadHorizontalInput > 0.5f))
             {
                 MoveSelector(1);
+                horizontalMoved = true;
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (horizontalInput > -0.5f && horizontalInput < 0.5f && dpadHorizontalInput > -0.5f && dpadHorizontalInput < 0.5f)
+            {
+                horizontalMoved = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow) || (!verticalMoved && verticalInput > 0.5f) || (!verticalMoved && dpadVerticalInput > 0.5f))
             {
                 MoveSelector(-4); // Supponendo che ci siano 4 slot per riga
+                verticalMoved = true;
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.DownArrow) || (!verticalMoved && verticalInput < -0.5f) || (!verticalMoved && dpadVerticalInput < -0.5f))
             {
                 MoveSelector(4); // Supponendo che ci siano 4 slot per riga
+                verticalMoved = true;
             }
-            if (Input.GetKeyDown(KeyCode.Return))
+            else if (verticalInput > -0.5f && verticalInput < 0.5f && dpadVerticalInput > -0.5f && dpadVerticalInput < 0.5f)
+            {
+                verticalMoved = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.L))
             {
                 SelectSlot(currentSlotIndex);
             }
