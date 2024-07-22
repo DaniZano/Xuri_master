@@ -345,7 +345,7 @@ namespace TarodevController
             collectibleCount = 0;
             Collectible.CollectiblesReappear();
             FallingPlatformManager.ResetAllPlatforms();
-            //miniboss.ResetHealth();
+            miniboss.ResetHealth();
 
 
         }
