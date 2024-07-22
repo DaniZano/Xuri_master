@@ -77,6 +77,11 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        if (MenuManagerINPLAY.Instance != null && MenuManagerINPLAY.Instance.IsMenuActive())
+    {
+        // Se il menu è aperto, non aprire l'inventario
+        return;
+    }
         // Controlla l'input della tastiera per aprire e chiudere l'inventario
         if (Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown("Fire3"))
         {
