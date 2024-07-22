@@ -30,7 +30,7 @@ public class SeagullMovementTrigger : MonoBehaviour
 
     void Update()
     {
-        if (playerInTrigger && Input.GetKeyDown(activationKey))
+        if (playerInTrigger && (Input.GetKeyDown(activationKey) || Input.GetButtonDown("Fire2")))
         {
             if (seagullMover.IsWaitingForPlayer())
             {
