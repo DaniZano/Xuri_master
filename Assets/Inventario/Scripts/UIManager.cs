@@ -13,6 +13,12 @@ public class UIManager : MonoBehaviour
     public GameObject blurBackgroundSinglePage; // Sfondo sfocato
     public RectTransform selector; // Selettore degli slot
 
+    public AudioClip moveSound; // Suono per il movimento
+    public AudioClip openSound; // Suono per l'apertura dell'inventario
+    public AudioClip selectSound; // Suono per la selezione di uno slot
+
+    private AudioSource audioSource;
+
     private int currentPageIndex = -1; // Indice della pagina attualmente visualizzata
     private int currentSlotIndex = 0; // Indice dello slot attualmente selezionato
 
@@ -34,6 +40,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
         // Nascondi il diario all'inizio
         if (diaryUI != null)
         {
@@ -182,6 +189,8 @@ public class UIManager : MonoBehaviour
 
             // Mostra il BlurBackground
             blurBackground.SetActive(true);
+
+            PlaySound(selectSound);
         }
     }
 
@@ -222,6 +231,7 @@ public class UIManager : MonoBehaviour
                     UpdateSelectorPosition();
                     selector.gameObject.SetActive(true);
                 }
+                PlaySound(openSound);
             }
         }
     }
@@ -233,6 +243,8 @@ public class UIManager : MonoBehaviour
         {
             currentSlotIndex = newSlotIndex;
             UpdateSelectorPosition();
+
+            PlaySound(moveSound);
         }
     }
 
@@ -254,5 +266,13 @@ public class UIManager : MonoBehaviour
             newIndex = (newIndex + direction + slotImages.Length) % slotImages.Length;
         } while (slotImages[newIndex].sprite == null && newIndex != startIndex);
         return newIndex;
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 }
