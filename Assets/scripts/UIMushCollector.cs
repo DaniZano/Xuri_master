@@ -6,6 +6,7 @@ public class UIMushCollector : MonoBehaviour
 {
     public TextMeshProUGUI collectibleText;
     private PlayerController playerController;
+    public GameObject mushCanvas;
 
     private void Awake()
     {
@@ -18,9 +19,16 @@ public class UIMushCollector : MonoBehaviour
 
     private void Update()
     {
-        if (playerController != null)
+        if (playerController != null &&mushCanvas!=null)
         {
-            collectibleText.text = "x " + playerController.GetCollectibleCount().ToString();
+            if (playerController.GetCollectibleCount()==0) {
+                mushCanvas.SetActive(false);
+            }
+            else {
+                mushCanvas.SetActive(false);
+                collectibleText.text = "x " + playerController.GetCollectibleCount().ToString();
+                }
         }
     }
 }
+
