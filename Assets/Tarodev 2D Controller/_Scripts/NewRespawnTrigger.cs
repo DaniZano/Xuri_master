@@ -5,7 +5,7 @@ using TarodevController;
 public class NewRespawnTrigger : MonoBehaviour
 {
     public Transform newRespawnPoint;
-    public float newDeathYLevel;
+    //public float newDeathYLevel;
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -16,8 +16,13 @@ public class NewRespawnTrigger : MonoBehaviour
             if (playerController != null)
             {
                 playerController.SetRespawnPoint(newRespawnPoint);
-                playerController.SetDeathYLevel(newDeathYLevel);
+                //playerController.SetDeathYLevel(newDeathYLevel);
 
+            }
+
+            else
+            {
+                Debug.Log("cazzo");
             }
 
             gameObject.SetActive(false);
