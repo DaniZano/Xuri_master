@@ -456,10 +456,10 @@ RectTransform:
   - {fileID: 1297026053}
   m_Father: {fileID: 1061090221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24, y: 89}
-  m_SizeDelta: {x: 557.343, y: 69.6679}
+  m_AnchorMin: {x: 0.28560418, y: 0.5638126}
+  m_AnchorMax: {x: 0.70552087, y: 0.614}
+  m_AnchoredPosition: {x: -0.99090576, y: 4}
+  m_SizeDelta: {x: -248.65698, y: 15.6679}
   m_Pivot: {x: 0.48137835, y: 0.49999997}
 --- !u!114 &178577875
 MonoBehaviour:
