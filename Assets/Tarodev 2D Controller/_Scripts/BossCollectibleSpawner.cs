@@ -1,8 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using TarodevController;
 using UnityEngine;
 
-// devi sistemare la questione di velocità si spawn
 public class BossCollectibleSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject objectPrefab; // Il prefab dell'oggetto da spawnare
@@ -10,7 +10,7 @@ public class BossCollectibleSpawner : MonoBehaviour
     [SerializeField] private float respawnDelay = 5f; // Tempo di attesa prima del respawn del prossimo oggetto
     [SerializeField] private Transform[] spawnPoints; // Punti di spawn degli oggetti
 
-    private GameObject currentObject;
+    private List<GameObject> spawnedObjects = new List<GameObject>(); // Elenco degli oggetti spawnati
     private bool playerInArea = false;
 
     private void OnEnable()
@@ -28,7 +28,7 @@ public class BossCollectibleSpawner : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInArea = true;
-            if (currentObject == null)
+            if (spawnedObjects.Count == 0)
             {
                 SpawnObject();
             }
@@ -40,11 +40,7 @@ public class BossCollectibleSpawner : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInArea = false;
-            if (currentObject != null)
-            {
-                Destroy(currentObject); // Rimuovi l'oggetto corrente
-                currentObject = null;
-            }
+            DestroyAllSpawnedObjects();
             StopAllCoroutines(); // Ferma il respawn se il giocatore esce dall'area
         }
     }
@@ -52,7 +48,8 @@ public class BossCollectibleSpawner : MonoBehaviour
     private void SpawnObject()
     {
         Vector3 spawnPosition = GetRandomSpawnPoint();
-        currentObject = Instantiate(objectPrefab, spawnPosition, Quaternion.identity);
+        GameObject newObject = Instantiate(objectPrefab, spawnPosition, Quaternion.identity);
+        spawnedObjects.Add(newObject);
     }
 
     private void HandleObjectCollected()
@@ -65,9 +62,8 @@ public class BossCollectibleSpawner : MonoBehaviour
 
     private IEnumerator RespawnObject()
     {
-
         yield return new WaitForSeconds(respawnDelay);
-        if (/*currentObject == null &&*/ playerInArea) // Verifica se non c'è già un oggetto attivo e se il giocatore è ancora nell'area
+        if (playerInArea) // Verifica se il giocatore è ancora nell'area
         {
             SpawnObject();
         }
@@ -88,5 +84,17 @@ public class BossCollectibleSpawner : MonoBehaviour
             float y = Random.Range(bounds.min.y, bounds.max.y);
             return new Vector3(x, y, spawnArea.transform.position.z);
         }
+    }
+
+    private void DestroyAllSpawnedObjects()
+    {
+        foreach (GameObject obj in spawnedObjects)
+        {
+            if (obj != null)
+            {
+                Destroy(obj);
+            }
+        }
+        spawnedObjects.Clear();
     }
 }
