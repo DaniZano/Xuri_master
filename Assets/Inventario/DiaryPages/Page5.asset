@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96424cdde0d60475c9838d99cb832d9d, type: 3}
   m_Name: Page5
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 7be7acb4babed4478b072c6864f2b6a1, type: 3}
-  contentImage: {fileID: 21300000, guid: 1285e17eb033e4584ae122bbe5f2e0c1, type: 3}
+  icon: {fileID: 21300000, guid: cd6638f54980a4cf5b8531f875ba0c4b, type: 3}
+  contentImage: {fileID: 21300000, guid: 2d9f0afe7f1cb4495a00901750ebeab3, type: 3}
