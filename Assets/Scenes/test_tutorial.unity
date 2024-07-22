@@ -16962,13 +16962,14 @@ GameObject:
   - component: {fileID: 335967983}
   - component: {fileID: 335967985}
   - component: {fileID: 335967984}
+  - component: {fileID: 335967986}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &335967983
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17085,6 +17086,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335967982}
   m_CullTransparentMesh: 1
+--- !u!95 &335967986
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335967982}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42eabd0eba4bfd84a96d50713b6d72c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &336895804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 119747100739365319, guid: 5662a33d10792814999f8157c589aeea, type: 3}
