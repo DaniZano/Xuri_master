@@ -10,10 +10,16 @@ public class SeagullMover : MonoBehaviour
     private int currentWaypointIndex = 0; // Indice del waypoint attuale
     private bool isMoving = false; // Controlla se l'entità si sta muovendo
     private bool waitingForPlayer = false; // Controlla se l'entità sta aspettando l'input del giocatore
+    private Vector3 originalScale; // Memorizza la scala originale
 
     public bool IsMoving
     {
         get { return isMoving; }
+    }
+
+    void Start()
+    {
+        originalScale = transform.localScale; // Memorizza la scala originale all'inizio
     }
 
     void Update()
@@ -34,6 +40,17 @@ public class SeagullMover : MonoBehaviour
 
             // Muovi l'entità verso il waypoint con una velocità costante
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, speed * Time.deltaTime);
+
+            // Flipping del gabbiano
+            Vector3 direction = targetWaypoint.position - transform.position;
+            if (direction.x < 0)
+            {
+                transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z); // Flip verso sinistra
+            }
+            else if (direction.x > 0)
+            {
+                transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z); // Flip verso destra
+            }
 
             // Se l'entità ha raggiunto il waypoint
             if (Vector3.Distance(transform.position, targetWaypoint.position) < stoppingDistance)
@@ -90,6 +107,3 @@ public class SeagullMover : MonoBehaviour
         return waitingForPlayer;
     }
 }
-
-
-
