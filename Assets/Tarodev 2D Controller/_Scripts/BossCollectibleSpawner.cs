@@ -40,7 +40,7 @@ public class BossCollectibleSpawner : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInArea = false;
-            DestroyAllSpawnedObjects();
+            //DestroyAllSpawnedObjects();
             StopAllCoroutines(); // Ferma il respawn se il giocatore esce dall'area
         }
     }
