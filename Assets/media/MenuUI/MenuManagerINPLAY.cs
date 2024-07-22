@@ -87,13 +87,13 @@ public class MenuManagerINPLAY : MonoBehaviour
     {
 
         // Controlla se il menu deve essere mostrato
-        if (Input.GetKeyDown(KeyCode.M) ) //|| Input.GetButtonDown("Start")
+        if (Input.GetKeyDown(KeyCode.M)  || Input.GetKeyDown(KeyCode.JoystickButton9))
         {
             ToggleMenu();
         }
 
         // Gestisce l'input del controller per chiudere gli overlay e tornare al menu
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Fire3"))
+        if (Input.GetKeyDown(KeyCode.X)) //|| Input.GetButtonDown("Fire2"))
         {
             CloseOverlay();
         }
@@ -139,7 +139,7 @@ public class MenuManagerINPLAY : MonoBehaviour
             verticalMoved = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Jump"))
         {
             SelectSlot(currentSlotIndex);
         }

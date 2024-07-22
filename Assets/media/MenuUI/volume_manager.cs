@@ -7,6 +7,9 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] Slider volumeSlider;
 
+    private bool horizontalMoved = false;
+
+
     void Start()
     {
         if (!PlayerPrefs.HasKey("musicVolume"))
@@ -22,14 +25,18 @@ public class SoundManager : MonoBehaviour
 
     void Update()
     {
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float dpadHorizontalInput = Input.GetAxis("DPadHorizontal");
+
         // Gestione delle frecce per modificare il volume
         float volumeChange = 0;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || (!horizontalMoved && horizontalInput < -0.5f) || (!horizontalMoved && dpadHorizontalInput < -0.5f))
         {
             volumeChange = -0.01f; // Diminuire il volume
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) || (!horizontalMoved && horizontalInput > 0.5f) || (!horizontalMoved && dpadHorizontalInput > 0.5f))
         {
             volumeChange = 0.01f; // Aumentare il volume
         }

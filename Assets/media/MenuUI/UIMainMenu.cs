@@ -90,7 +90,7 @@ public class UIMainMenu : MonoBehaviour
     void Update()
     {
         // Gestisce l'input del controller per chiudere gli overlay e tornare al menu
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Fire3"))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton9))
         {
             CloseOverlay();
         }
