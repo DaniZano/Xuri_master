@@ -85,6 +85,7 @@ public class MenuManagerINPLAY : MonoBehaviour
 
     void Update()
     {
+
         // Controlla se il menu deve essere mostrato
         if (Input.GetKeyDown(KeyCode.M) ) //|| Input.GetButtonDown("Start")
         {
@@ -267,4 +268,10 @@ public class MenuManagerINPLAY : MonoBehaviour
     {
         AudioListener.volume = value;
     }
+
+    public bool IsMenuActive()
+{
+    return isMenuActive;
+}
+
 }
