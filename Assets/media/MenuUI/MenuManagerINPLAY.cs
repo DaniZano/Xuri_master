@@ -24,6 +24,7 @@ public class MenuManagerINPLAY : MonoBehaviour
     private bool isOverlayActive = false; // Flag per controllare se un overlay è attivo
     private bool isMenuActive = false; // Flag per controllare se il menu è attivo
 
+
     void Awake()
     {
         if (Instance == null)
@@ -93,7 +94,7 @@ public class MenuManagerINPLAY : MonoBehaviour
         }
 
         // Gestisce l'input del controller per chiudere gli overlay e tornare al menu
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Fire2"))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton9))
         {
             CloseOverlay();
         }
@@ -103,6 +104,18 @@ public class MenuManagerINPLAY : MonoBehaviour
         {
             return;
         }
+
+        //if (isOverlayActive)
+        //{
+        //    // Controlla se il pulsante Joystick 9 è premuto
+        //    if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton9))
+        //    {
+        //        // Gestisci l'input del pulsante Joystick 9 qui
+        //        CloseOverlay();
+        //    }
+        //    // Esce dalla funzione per ignorare altri input
+        //    return;
+        //}
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");

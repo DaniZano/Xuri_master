@@ -4805,7 +4805,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &104406339
 RectTransform:
@@ -19024,7 +19024,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_Range: 346
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -36837,7 +36837,7 @@ MonoBehaviour:
     lucky you smell of fish so much, otherwise I don''t think old Moe would have
     come to rescue you. I''m Moe, by the way. Remember, there''s only one rule around
     here: stay in the light or the Darkness will  surround you and kill you. Press
-    O and follow me, I have something to show you.'
+    O when you want to follow me, I have something to show you.'
   hideDialogueKey: 118
 --- !u!4 &899565585 stripped
 Transform:
@@ -40077,7 +40077,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1016551434
 RectTransform:
@@ -43857,7 +43857,7 @@ MonoBehaviour:
   dialogueText: {fileID: 3385657534059415712}
   dialogueMessage: "Be careful, these caverns are full of pitfalls, it\u2019s a pity
     that you can't fly, can you? Anyway...the Lights created these platforms specifically
-    so that humans could come in here too. You can jump onto them by pressing \u2018\u2573\u2019.
+    so that humans could come in here too. You can jump onto them by pressing \u2018X\u2019.
     I saw you juggling well on top of those sails, you should also be able to jump
     twice. "
   hideDialogueKey: 118
