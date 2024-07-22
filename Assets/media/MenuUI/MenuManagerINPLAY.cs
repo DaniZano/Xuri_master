@@ -93,7 +93,7 @@ public class MenuManagerINPLAY : MonoBehaviour
         }
 
         // Gestisce l'input del controller per chiudere gli overlay e tornare al menu
-        if (Input.GetKeyDown(KeyCode.X)) //|| Input.GetButtonDown("Fire2"))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Fire2"))
         {
             CloseOverlay();
         }

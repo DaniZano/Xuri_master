@@ -90,7 +90,7 @@ public class UIMainMenu : MonoBehaviour
     void Update()
     {
         // Gestisce l'input del controller per chiudere gli overlay e tornare al menu
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton9))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetButtonDown("Fire2"))
         {
             CloseOverlay();
         }
@@ -136,7 +136,7 @@ public class UIMainMenu : MonoBehaviour
             verticalMoved = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Jump"))
         {
             SelectSlot(currentSlotIndex);
         }
