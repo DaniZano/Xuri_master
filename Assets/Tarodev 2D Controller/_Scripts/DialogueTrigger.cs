@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerInRange && Input.GetKeyDown(hideDialogueKey))
+        if (isPlayerInRange && (Input.GetKeyDown(hideDialogueKey) || Input.GetButtonDown("Fire2")))
         {
             dialoguePanel.SetActive(false); // Nasconde il dialogo se il tasto è premuto
         }
