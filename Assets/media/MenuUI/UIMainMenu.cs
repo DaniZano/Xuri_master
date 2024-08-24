@@ -6,9 +6,9 @@ public class UIMainMenu : MonoBehaviour
 {
     public static UIMainMenu Instance;
 
-    public GameObject MenuUI; // Pannello del menu
-    public Image[] slotImages; // Array di immagini per gli slot
-    public RectTransform selector; // Selettore degli slot
+    public GameObject MainMenuUI; // Pannello del menu
+    public Image[] MainSlotImages; // Array di immagini per gli slot
+    public RectTransform MainSelector; // Selettore degli slot
 
     public AudioClip moveSound; // Suono per il movimento
     public AudioClip selectSound; // Suono per la selezione di uno slot
@@ -23,6 +23,7 @@ public class UIMainMenu : MonoBehaviour
     private bool horizontalMoved = false;
     private bool verticalMoved = false;
     private bool isOverlayActive = false; // Flag per controllare se un overlay è attivo
+    private bool isMenuActive = true; // Flag per controllare se il menu è attivo
 
     void Awake()
     {
@@ -42,13 +43,13 @@ public class UIMainMenu : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
 
         // Assicurati che il menu sia visibile all'inizio
-        if (MenuUI != null)
+        if (MainMenuUI != null)
         {
-            MenuUI.SetActive(true);
+            MainMenuUI.SetActive(true);
         }
 
         // Inizializza gli slot come trasparenti
-        foreach (var slot in slotImages)
+        foreach (var slot in MainSlotImages)
         {
             if (slot != null)
             {
@@ -57,14 +58,14 @@ public class UIMainMenu : MonoBehaviour
         }
 
         // Mostra il selettore all'inizio e imposta il colore con la trasparenza desiderata
-        if (selector != null)
+        if (MainSelector != null)
         {
-            Image selectorImage = selector.GetComponent<Image>();
-            if (selectorImage != null)
+            Image MainSelectorImage = MainSelector.GetComponent<Image>();
+            if (MainSelectorImage != null)
             {
-                selectorImage.color = new Color(1, 1, 1, 0.2f); // Bianco con 50% di trasparenza
+                MainSelectorImage.color = new Color(1, 1, 1, 0.2f); // Bianco con 20% di trasparenza
             }
-            selector.gameObject.SetActive(true);
+            MainSelector.gameObject.SetActive(true);
         }
 
         // Nascondi le impostazioni all'inizio
@@ -90,7 +91,7 @@ public class UIMainMenu : MonoBehaviour
     void Update()
     {
         // Gestisce l'input del controller per chiudere gli overlay e tornare al menu
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton9)) //|| Input.GetButtonDown("Fire2"))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton9)) 
         {
             CloseOverlay();
         }
@@ -123,12 +124,12 @@ public class UIMainMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow) || (!verticalMoved && verticalInput > 0.5f) || (!verticalMoved && dpadVerticalInput > 0.5f))
         {
-            MoveSelector(-1); // Puoi cambiare il valore per adattarlo alla tua disposizione degli slot
+            MoveSelector(-1); 
             verticalMoved = true;
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) || (!verticalMoved && verticalInput < -0.5f) || (!verticalMoved && dpadVerticalInput < -0.5f))
         {
-            MoveSelector(1); // Puoi cambiare il valore per adattarlo alla tua disposizione degli slot
+            MoveSelector(1); 
             verticalMoved = true;
         }
         else if (verticalInput > -0.5f && verticalInput < 0.5f && dpadVerticalInput > -0.5f && dpadVerticalInput < 0.5f)
@@ -136,7 +137,7 @@ public class UIMainMenu : MonoBehaviour
             verticalMoved = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return)) //|| Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Jump"))
         {
             SelectSlot(currentSlotIndex);
         }
@@ -148,17 +149,17 @@ public class UIMainMenu : MonoBehaviour
 
         if (currentSlotIndex < 0)
         {
-            currentSlotIndex = slotImages.Length - 1;
+            currentSlotIndex = MainSlotImages.Length - 1;
         }
-        else if (currentSlotIndex >= slotImages.Length)
+        else if (currentSlotIndex >= MainSlotImages.Length)
         {
             currentSlotIndex = 0;
         }
 
         // Muovi il selettore alla posizione del nuovo slot
-        if (selector != null && slotImages[currentSlotIndex] != null)
+        if (MainSelector != null && MainSlotImages[currentSlotIndex] != null)
         {
-            selector.position = slotImages[currentSlotIndex].transform.position;
+            MainSelector.position = MainSlotImages[currentSlotIndex].transform.position;
         }
 
         PlaySound(moveSound);
@@ -172,11 +173,11 @@ public class UIMainMenu : MonoBehaviour
                 OnSlot1Clicked();
                 break;
             case 1:
-            OnSlot3Clicked();
+                OnSlot3Clicked();
                 break;
                 
             case 2:
-            OnSlot2Clicked();
+                OnSlot2Clicked();
                 break;
                 
             case 3:
@@ -199,7 +200,17 @@ public class UIMainMenu : MonoBehaviour
 
     public void OnSlot1Clicked()
     {
+        // Carica la nuova scena
         SceneManager.LoadScene("video_intro");
+        
+        // Disattiva il menu principale
+        if (MainMenuUI != null)
+        {
+            MainMenuUI.SetActive(false);
+        }
+
+        // Rimuovi l'istanza per evitare accessi a oggetti distrutti
+        Destroy(gameObject);
     }
 
     public void OnSlot2Clicked()
@@ -222,7 +233,7 @@ public class UIMainMenu : MonoBehaviour
         if (settingsOverlay != null)
         {
             settingsOverlay.SetActive(true);
-            isOverlayActive = true; // Imposta il flag per indicare che un overlay è attivo
+            isOverlayActive = true; 
         }
     }
 
@@ -231,7 +242,7 @@ public class UIMainMenu : MonoBehaviour
         if (creditsCanvas != null)
         {
             creditsCanvas.SetActive(true);
-            isOverlayActive = true; // Imposta il flag per indicare che un overlay è attivo
+            isOverlayActive = true; 
         }
     }
 
@@ -239,21 +250,20 @@ public class UIMainMenu : MonoBehaviour
     {
         if (settingsOverlay != null)
         {
-            settingsOverlay.SetActive(false); // Nascondi l'overlay delle impostazioni
+            settingsOverlay.SetActive(false); 
         }
 
         if (creditsCanvas != null)
         {
-            creditsCanvas.SetActive(false); // Nascondi l'overlay delle impostazioni
+            creditsCanvas.SetActive(false); 
         }
 
-        // Mostra il menu principale se necessario
-        if (MenuUI != null)
+        if (MainMenuUI != null)
         {
-            MenuUI.SetActive(true);
+            MainMenuUI.SetActive(true);
         }
 
-        isOverlayActive = false; // Reimposta il flag per indicare che nessun overlay è attivo
+        isOverlayActive = false; 
     }
 
     private void OnVolumeChanged(float value)

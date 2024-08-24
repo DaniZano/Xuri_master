@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641287, b: 0.5748173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -156,10 +156,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 408197511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 875, y: -445}
-  m_SizeDelta: {x: 248.2, y: 87.6}
+  m_AnchorMin: {x: 0.6415809, y: 0.32200003}
+  m_AnchorMax: {x: 0.85827947, y: 0.46400002}
+  m_AnchoredPosition: {x: 3.5, y: -3}
+  m_SizeDelta: {x: -2.7999878, y: 4.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131369111
 MonoBehaviour:
@@ -246,8 +246,8 @@ Camera:
   m_GameObject: {fileID: 240618558}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -337,10 +337,10 @@ RectTransform:
   - {fileID: 821635185}
   m_Father: {fileID: 2131303391}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 89.023, y: -113.53513}
-  m_SizeDelta: {x: -757.66, y: -364.12976}
+  m_AnchorMin: {x: 0.24370833, y: 0.06334031}
+  m_AnchorMax: {x: 0.85, y: 0.69623035}
+  m_AnchoredPosition: {x: -0.97698975, y: 0.46484375}
+  m_SizeDelta: {x: -1.6599731, y: -16.12976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &442230066
 GameObject:
@@ -839,10 +839,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 408197511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 555, y: -532.6}
-  m_SizeDelta: {x: 248.2, y: 87.6}
+  m_AnchorMin: {x: 0.37783837, y: 0.18856487}
+  m_AnchorMax: {x: 0.57365483, y: 0.34573132}
+  m_AnchoredPosition: {x: 2.5, y: 2}
+  m_SizeDelta: {x: 21.200012, y: -4.399994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &821635186
 MonoBehaviour:
@@ -996,7 +996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 73, y: 52}
+  m_AnchoredPosition: {x: 73, y: 2}
   m_SizeDelta: {x: -1352.1492, y: -802}
   m_Pivot: {x: 0.5000005, y: 0.5}
 --- !u!114 &1101467906
@@ -1145,10 +1145,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 408197511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -484}
-  m_SizeDelta: {x: 248.2, y: 87.6}
+  m_AnchorMin: {x: 0.10576439, y: 0.26743513}
+  m_AnchorMax: {x: 0.25139728, y: 0.39886108}
+  m_AnchoredPosition: {x: -7, y: -5}
+  m_SizeDelta: {x: 80.20001, y: 10.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1218835435
 MonoBehaviour:
@@ -1383,10 +1383,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 408197511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 519, y: -239}
-  m_SizeDelta: {x: 283.1, y: 105.8}
+  m_AnchorMin: {x: 0.31, y: 0.632}
+  m_AnchorMax: {x: 0.57365483, y: 0.80984277}
+  m_AnchoredPosition: {x: 5.5, y: 1}
+  m_SizeDelta: {x: -21.900024, y: 1.7999878}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1637320558
 MonoBehaviour:
@@ -1482,15 +1482,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cec10cd0e73499a815f6c93d3a1afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuUI: {fileID: 2131303390}
-  slotImages:
+  MainMenuUI: {fileID: 2131303390}
+  MainSlotImages:
   - {fileID: 1637320559}
   - {fileID: 1218835436}
   - {fileID: 131369112}
   - {fileID: 821635187}
-  selector: {fileID: 1101467905}
-  moveSound: {fileID: 0}
-  selectSound: {fileID: 0}
+  MainSelector: {fileID: 1101467905}
+  moveSound: {fileID: 8300000, guid: 91e7f9571bd2442ed94a980c96cd29f5, type: 3}
+  selectSound: {fileID: 8300000, guid: d0dee5dac533e4c0db97d406ffcdceef, type: 3}
   settingsOverlay: {fileID: 1847064896}
   volumeSlider: {fileID: 461604383}
   creditsCanvas: {fileID: 1842816527}

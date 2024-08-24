@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TarodevController;
+using System.Collections;
 
 public class MenuManagerINPLAY : MonoBehaviour
 {
@@ -16,7 +18,6 @@ public class MenuManagerINPLAY : MonoBehaviour
     public GameObject settingsOverlay; // Overlay delle impostazioni
     public Slider volumeSlider; // Slider per il volume
 
-
     private AudioSource audioSource;
     private int currentSlotIndex = 0; // Indice dello slot attualmente selezionato
     private bool horizontalMoved = false;
@@ -24,6 +25,7 @@ public class MenuManagerINPLAY : MonoBehaviour
     private bool isOverlayActive = false; // Flag per controllare se un overlay è attivo
     private bool isMenuActive = false; // Flag per controllare se il menu è attivo
 
+    private PlayerController playerController;
 
     void Awake()
     {
@@ -41,6 +43,13 @@ public class MenuManagerINPLAY : MonoBehaviour
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
+        {
+        playerController = FindObjectOfType<PlayerController>();
+        if (playerController == null)
+        {
+            Debug.LogError("PlayerController non trovato nella scena!");
+        }
+    }
 
         // Assicurati che il menu sia invisibile all'inizio
         if (MenuUI != null)
@@ -74,8 +83,6 @@ public class MenuManagerINPLAY : MonoBehaviour
             settingsOverlay.SetActive(false);
         }
 
-       
-
         // Imposta il valore iniziale del volume
         if (volumeSlider != null)
         {
@@ -86,9 +93,8 @@ public class MenuManagerINPLAY : MonoBehaviour
 
     void Update()
     {
-
         // Controlla se il menu deve essere mostrato
-        if (Input.GetKeyDown(KeyCode.M)  || Input.GetKeyDown(KeyCode.JoystickButton9))
+        if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.JoystickButton9))
         {
             ToggleMenu();
         }
@@ -104,18 +110,6 @@ public class MenuManagerINPLAY : MonoBehaviour
         {
             return;
         }
-
-        //if (isOverlayActive)
-        //{
-        //    // Controlla se il pulsante Joystick 9 è premuto
-        //    if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton9))
-        //    {
-        //        // Gestisci l'input del pulsante Joystick 9 qui
-        //        CloseOverlay();
-        //    }
-        //    // Esce dalla funzione per ignorare altri input
-        //    return;
-        //}
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -161,16 +155,28 @@ public class MenuManagerINPLAY : MonoBehaviour
     private void ToggleMenu()
     {
         isMenuActive = !isMenuActive;
+        PlayerController playerController = FindObjectOfType<PlayerController>();
 
         if (isMenuActive)
         {
             Time.timeScale = 0f; // Pausa il gioco
             MenuUI.SetActive(true);
+
+            if (playerController != null)
+            {
+                playerController.disableInput(); // Disabilita l'input
+            }
+
         }
         else
         {
             Time.timeScale = 1f; // Riprendi il gioco
             MenuUI.SetActive(false);
+            if (playerController != null)
+            {
+                playerController.enableInput(); // Disabilita l'input
+            }
+
         }
     }
 
@@ -194,6 +200,24 @@ public class MenuManagerINPLAY : MonoBehaviour
         }
 
         PlaySound(moveSound);
+    }
+
+    private IEnumerator ResumeAfterDelay(float delay)
+    {
+        // Disabilita l'input del giocatore
+        if (playerController != null)
+        {
+            playerController.disableInput();
+        }
+
+        // Attendi per il tempo specificato
+        yield return new WaitForSeconds(delay);
+
+        // Riabilita l'input del giocatore
+        if (playerController != null)
+        {
+            playerController.enableInput();
+        }
     }
 
     private void SelectSlot(int index)
@@ -230,7 +254,7 @@ public class MenuManagerINPLAY : MonoBehaviour
     public void OnSlot1Clicked()
     {
         ToggleMenu(); // Nascondi il menu e riprendi il gioco
-
+         StartCoroutine(ResumeAfterDelay(0.1f)); 
     }
 
     public void OnSlot2Clicked()
@@ -257,8 +281,6 @@ public class MenuManagerINPLAY : MonoBehaviour
         }
     }
 
-    
-
     private void CloseOverlay()
     {
         if (settingsOverlay != null)
@@ -266,15 +288,13 @@ public class MenuManagerINPLAY : MonoBehaviour
             settingsOverlay.SetActive(false); // Nascondi l'overlay delle impostazioni
         }
 
-        
+        isOverlayActive = false; // Reimposta il flag per indicare che nessun overlay è attivo
 
         // Mostra il menu principale se necessario
-        if (MenuUI != null)
+        if (MenuUI != null && isMenuActive)
         {
             MenuUI.SetActive(true);
         }
-
-        isOverlayActive = false; // Reimposta il flag per indicare che nessun overlay è attivo
     }
 
     private void OnVolumeChanged(float value)
@@ -283,8 +303,7 @@ public class MenuManagerINPLAY : MonoBehaviour
     }
 
     public bool IsMenuActive()
-{
-    return isMenuActive;
-}
-
+    {
+        return isMenuActive;
+    }
 }

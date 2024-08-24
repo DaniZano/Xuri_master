@@ -45,11 +45,17 @@ namespace TarodevController
         public Animator transitionAnimator; // Assegna l'animatore del panel nel Canvas
         public float transitionTime = 0f;
 
+        public GameObject respawnImage; 
+
         //nemico inseguitore
         public PlayerPath playerPath; // Riferimento allo script del percorso del personaggio
         public EnemyFollowPath enemyFollowPath; // Riferimento allo script del nemico
 
         public Miniboss miniboss;
+
+        //prova menu ALI
+        private bool ignoreInput=false;
+
 
 
         #region Interface
@@ -64,6 +70,10 @@ namespace TarodevController
 
         private void Awake()
         {
+            if (respawnImage != null)
+            {
+                respawnImage.gameObject.SetActive(false);
+            }
             _rb = GetComponent<Rigidbody2D>();
             _rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
@@ -92,6 +102,8 @@ namespace TarodevController
         {
             if (_isRespawning) return; // Ignora l'input se il giocatore � in respawn
 
+            if (ignoreInput) return;
+
 
             _frameInput = new FrameInput
             {
@@ -113,10 +125,14 @@ namespace TarodevController
             }
         }
 
+
+
         private void FixedUpdate()
         {
 
             if (_isRespawning) return;
+
+            if (ignoreInput) return; 
 
             CheckCollisions();
 
@@ -127,6 +143,14 @@ namespace TarodevController
             ApplyMovement();
 
             CheckForDeath();
+        }
+
+        public void disableInput() {
+            ignoreInput=true;
+        }
+
+        public void enableInput() {
+            ignoreInput=false;
         }
 
         #region Collisions
@@ -350,9 +374,15 @@ namespace TarodevController
 
         }
 
+       
+
         private IEnumerator RespawnRoutine()
         {
             audioSource.PlayOneShot(respawnSound); // Riproduci il suono del respawn
+            float respawnSoundDuration = respawnSound.length; // Ottieni la durata del suono di respawn
+            float fadeInOffset = 5f; // Intervallo di tempo prima della fine del suono per iniziare il fade-in
+
+
 
             _isRespawning = true; // Inizia il respawn
             // Avvia la transizione di fade out
@@ -361,25 +391,79 @@ namespace TarodevController
             // Aspetta che la transizione sia completata
             //yield return new WaitForSeconds(transitionTime); 
 
-            
-
-            // Respawna il personaggio
-
+             if (respawnImage != null)
+        {
+            respawnImage.gameObject.SetActive(true);
+            yield return StartCoroutine(FadeImageIn(respawnImage, 0.5f));
+        }
+        // Aspetta per la durata del suono di respawn
+            yield return new WaitForSeconds(respawnSoundDuration - fadeInOffset);
             // Avvia la transizione di fade in
             transitionAnimator.SetTrigger("FadeIn");
             // Aspetta che la transizione sia completata
             yield return new WaitForSeconds(transitionTime);
+            if (respawnImage != null)
+                    {
+                        yield return StartCoroutine(FadeImageOut(respawnImage, 0.5f)); // Fai il fade-out dell'immagine
+                        respawnImage.gameObject.SetActive(false);
+                    }
+
+
+            // Respawna il personaggio
+
+            
+            
 
             transitionAnimator.SetTrigger("Normal");
             
 
             yield return new WaitForSeconds(respawnDelay);
             //transform.position = respawnPoint.position;
+
+            
+            
+
             yield return new WaitForSeconds(respawnDelay);
             _isRespawning = false; // Termina il respawn
 
 
         }
+
+        private IEnumerator FadeImageIn(GameObject image, float duration)
+{
+    CanvasGroup canvasGroup = image.GetComponent<CanvasGroup>();
+    if (canvasGroup == null)
+    {
+        canvasGroup = image.AddComponent<CanvasGroup>();
+    }
+
+    float elapsedTime = 0f;
+    while (elapsedTime < duration)
+    {
+        elapsedTime += Time.deltaTime;
+        canvasGroup.alpha = Mathf.Clamp01(elapsedTime / duration);
+        yield return null;
+    }
+    canvasGroup.alpha = 1f;
+}
+
+private IEnumerator FadeImageOut(GameObject image, float duration)
+{
+    CanvasGroup canvasGroup = image.GetComponent<CanvasGroup>();
+    if (canvasGroup == null)
+    {
+        canvasGroup = image.AddComponent<CanvasGroup>();
+    }
+
+    float elapsedTime = 0f;
+    while (elapsedTime < duration)
+    {
+        elapsedTime += Time.deltaTime;
+        canvasGroup.alpha = Mathf.Clamp01(1f - (elapsedTime / duration));
+        yield return null;
+    }
+    canvasGroup.alpha = 0f;
+}
 
         #endregion
 
