@@ -1007,10 +1007,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5832793701927830402}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5e86e8bf5399d4c018fddb6683ba8297, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9ff338179fbd546d4805a3e1fa2f93a9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1018,10 +1018,10 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 63.728844
-  MaxDistance: 130.4139
+  Priority: 129
+  DopplerLevel: 0.91
+  MinDistance: 61.5
+  MaxDistance: 122.6
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1056,7 +1056,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1086,7 +1086,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.35
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -20984,7 +20984,7 @@ MonoBehaviour:
   - {fileID: 1151442652}
   selector: {fileID: 285290011}
   moveSound: {fileID: 8300000, guid: 91e7f9571bd2442ed94a980c96cd29f5, type: 3}
-  selectSound: {fileID: 8300000, guid: 760cc5be0d8114280b42168af2721a60, type: 3}
+  selectSound: {fileID: 8300000, guid: 2e2c75b139b25433cac1e795c0dfbd8d, type: 3}
   settingsOverlay: {fileID: 326393}
   volumeSlider: {fileID: 1912244484}
 --- !u!1001 &416121614
@@ -31368,7 +31368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &742342708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63590,8 +63590,8 @@ MonoBehaviour:
   blurBackgroundSinglePage: {fileID: 714630719}
   selector: {fileID: 1070187797}
   moveSound: {fileID: 8300000, guid: 91e7f9571bd2442ed94a980c96cd29f5, type: 3}
-  openSound: {fileID: 8300000, guid: 760cc5be0d8114280b42168af2721a60, type: 3}
-  selectSound: {fileID: 8300000, guid: f2a4667c1ae1441e089675f2f1b6c386, type: 3}
+  openSound: {fileID: 8300000, guid: 2e2c75b139b25433cac1e795c0dfbd8d, type: 3}
+  selectSound: {fileID: 8300000, guid: 636205275710d488da26b5f67a8c0558, type: 3}
 --- !u!4 &1740964721
 Transform:
   m_ObjectHideFlags: 0
@@ -96026,10 +96026,10 @@ MonoBehaviour:
   deathYLevel: -200
   cameraOffset: {x: 0, y: 0, z: 0}
   respawnDelay: 1
-  jumpSound: {fileID: 8300000, guid: f2780c8fef3d6b445bec3f8d602ba12c, type: 3}
-  collectibleSound: {fileID: 8300000, guid: 91e7f9571bd2442ed94a980c96cd29f5, type: 3}
+  jumpSound: {fileID: 8300000, guid: deb45f15aa90a4580a6e8bc855bccdcb, type: 3}
+  collectibleSound: {fileID: 8300000, guid: 24763ddf590b54638a2f20233170b828, type: 3}
   useCollectibleSound: {fileID: 8300000, guid: 5e653334a4fc641eb906439e6a6e7de7, type: 3}
-  respawnSound: {fileID: 8300000, guid: cd03c09a592de4682a3568a7b412000c, type: 3}
+  respawnSound: {fileID: 8300000, guid: e397efa3d2e814443afacb337079f964, type: 3}
   _jumpsRemaining: 0
   _maxJumps: 2
   animator: {fileID: 5192796839222184983}
