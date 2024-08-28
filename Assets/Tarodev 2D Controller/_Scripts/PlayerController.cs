@@ -30,6 +30,8 @@ namespace TarodevController
         public AudioClip collectibleSound;
         public AudioClip useCollectibleSound;
         public AudioClip respawnSound;
+        public AudioClip diaryPageSound;
+        public AudioClip eggSound;
         private AudioSource audioSource;
 
 
@@ -123,6 +125,30 @@ namespace TarodevController
                 _jumpToConsume = true;
                 _timeJumpWasPressed = _time;
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("DiaryPage"))
+            {
+                CollectDiaryPage();
+            }
+            else if (collision.CompareTag("egg"))
+            {
+                CollectEgg();
+            }
+        }
+
+        private void CollectDiaryPage()
+        {
+            // Riproduci il suono della pagina del diario raccolta
+            audioSource.PlayOneShot(diaryPageSound);
+        }
+
+        private void CollectEgg()
+        {
+            // Riproduci il suono della pagina del diario raccolta
+            audioSource.PlayOneShot(eggSound);
         }
 
 

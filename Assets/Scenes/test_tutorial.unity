@@ -11636,7 +11636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 30.437744, y: -1.0551758}
+  m_AnchoredPosition: {x: 30.4375, y: -1.0551758}
   m_SizeDelta: {x: -1460.8379, y: -918.4949}
   m_Pivot: {x: 0.5000005, y: 0.5}
 --- !u!114 &285290012
@@ -28270,6 +28270,8 @@ MonoBehaviour:
   collectibleSound: {fileID: 0}
   useCollectibleSound: {fileID: 0}
   respawnSound: {fileID: 0}
+  diaryPageSound: {fileID: 0}
+  eggSound: {fileID: 0}
   _jumpsRemaining: 0
   _maxJumps: 2
   animator: {fileID: 5866666021909216657, guid: 7e60857e2afe1472398d0be892586ded, type: 3}
@@ -62244,7 +62246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.999939, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1683704179 stripped
@@ -70110,6 +70112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Uovo
       objectReference: {fileID: 0}
+    - target: {fileID: 901186203683299157, guid: b45ff8ecaabf24d43be9df449d6bad7c, type: 3}
+      propertyPath: m_TagString
+      value: egg
+      objectReference: {fileID: 0}
     - target: {fileID: 1306764699067130826, guid: b45ff8ecaabf24d43be9df449d6bad7c, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.99
@@ -71307,7 +71313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2906042, y: 0.58754975}
   m_AnchorMax: {x: 0.711, y: 0.6202749}
-  m_AnchoredPosition: {x: -10.47229, y: -9.5}
+  m_AnchoredPosition: {x: -10.472412, y: -9.5}
   m_SizeDelta: {x: -249.65698, y: 38.6679}
   m_Pivot: {x: 0.48137835, y: 0.49999997}
 --- !u!114 &1912244483
@@ -96545,6 +96551,8 @@ MonoBehaviour:
   collectibleSound: {fileID: 8300000, guid: 24763ddf590b54638a2f20233170b828, type: 3}
   useCollectibleSound: {fileID: 8300000, guid: 5e653334a4fc641eb906439e6a6e7de7, type: 3}
   respawnSound: {fileID: 8300000, guid: e397efa3d2e814443afacb337079f964, type: 3}
+  diaryPageSound: {fileID: 8300000, guid: 1666cfb736b72450e97fe24e80f494ed, type: 3}
+  eggSound: {fileID: 8300000, guid: d0dee5dac533e4c0db97d406ffcdceef, type: 3}
   _jumpsRemaining: 0
   _maxJumps: 2
   animator: {fileID: 5192796839222184983}

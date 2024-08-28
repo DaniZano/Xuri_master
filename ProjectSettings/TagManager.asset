@@ -7,6 +7,8 @@ TagManager:
   - Seagull
   - StartTrackingZone
   - StartFollowingZone
+  - DiaryPage
+  - egg
   layers:
   - Default
   - TransparentFX
