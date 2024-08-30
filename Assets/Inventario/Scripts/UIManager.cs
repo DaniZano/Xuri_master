@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -40,6 +41,15 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "test_tutorial")
+        {
+            UIMainMenu mainMenuManager = FindObjectOfType<UIMainMenu>();
+            if (mainMenuManager != null)
+            {
+                Destroy(mainMenuManager.gameObject);
+            }
+        }
+
         audioSource = gameObject.AddComponent<AudioSource>();
         // Nascondi il diario all'inizio
         if (diaryUI != null)

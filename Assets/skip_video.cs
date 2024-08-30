@@ -3,7 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class VideoSkip : MonoBehaviour
 {
-    
+    private void Start()
+    {
+        // Check if the scene is video_intro and destroy MainMenuManager if it exists
+        if (SceneManager.GetActiveScene().name == "video_intro")
+        {
+            UIMainMenu mainMenuManager = FindObjectOfType<UIMainMenu>();
+            if (mainMenuManager != null)
+            {
+                Destroy(mainMenuManager.gameObject);
+            }
+        }
+    }
 
     private void Update()
     {

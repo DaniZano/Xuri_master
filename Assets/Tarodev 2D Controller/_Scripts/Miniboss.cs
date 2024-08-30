@@ -136,7 +136,7 @@ public class Miniboss : MonoBehaviour
             audioSource.Play(); // Play it
         }
 
-        // Wait for 5 seconds before loading the final_scene
+        // Wait for 5 seconds before loading the Main Menu
         yield return new WaitForSeconds(5f);
 
         if (UIManager.Instance != null)
@@ -152,7 +152,7 @@ public class Miniboss : MonoBehaviour
 
 
         // Load the MainMenu scene
-        SceneManager.LoadScene("final_scene");
+        SceneManager.LoadScene("Main Menu");
     }
 
     void TakeDamage(int damage)

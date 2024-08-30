@@ -30,7 +30,7 @@ public class UIMainMenu : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject); // Mantieni l'istanza tra le scene
+            DontDestroyOnLoad(gameObject); // Mantieni l'istanza tra le scene
         }
         else
         {
