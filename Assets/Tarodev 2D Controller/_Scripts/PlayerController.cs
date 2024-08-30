@@ -420,7 +420,7 @@ namespace TarodevController
              if (respawnImage != null)
         {
             respawnImage.gameObject.SetActive(true);
-            yield return StartCoroutine(FadeImageIn(respawnImage, 0.5f));
+            yield return StartCoroutine(FadeImageIn(respawnImage, 2f));
         }
         // Aspetta per la durata del suono di respawn
             yield return new WaitForSeconds(respawnSoundDuration - fadeInOffset);

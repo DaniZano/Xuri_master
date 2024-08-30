@@ -209,8 +209,7 @@ public class UIMainMenu : MonoBehaviour
             MainMenuUI.SetActive(false);
         }
 
-        // Rimuovi l'istanza per evitare accessi a oggetti distrutti
-        Destroy(gameObject);
+       
     }
 
     public void OnSlot2Clicked()
