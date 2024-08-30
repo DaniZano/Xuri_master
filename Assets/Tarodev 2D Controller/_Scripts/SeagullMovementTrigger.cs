@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class SeagullMovementTrigger : MonoBehaviour
 {
+    public AudioClip flySound;
+    private AudioSource audioSource;
     private SeagullMover seagullMover;
-    private bool playerInTrigger = false; // Controlla se il giocatore è nel trigger
+    private bool playerInTrigger = false; // Controlla se il giocatore ï¿½ nel trigger
 
     public KeyCode activationKey = KeyCode.A; // Tasto da premere per avviare o continuare il movimento
 
     void Start()
     {
         seagullMover = GetComponent<SeagullMover>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -39,7 +42,17 @@ public class SeagullMovementTrigger : MonoBehaviour
             else if (!seagullMover.IsMoving)
             {
                 seagullMover.StartMovement();
+                PlayFlySound(); 
+
             }
+        }
+    }
+
+    void PlayFlySound()
+    {
+        if (audioSource != null && flySound != null)
+        {
+            audioSource.PlayOneShot(flySound); // Riproduci il suono del volo
         }
     }
 }
