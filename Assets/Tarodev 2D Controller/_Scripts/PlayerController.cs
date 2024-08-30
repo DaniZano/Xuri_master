@@ -407,8 +407,8 @@ namespace TarodevController
         {
             audioSource.PlayOneShot(respawnSound); // Riproduci il suono del respawn
             float respawnSoundDuration = respawnSound.length; // Ottieni la durata del suono di respawn
-            float fadeInOffset = 5f; // Intervallo di tempo prima della fine del suono per iniziare il fade-in
-             float fadeInDuration = 2f; // Durata del fade-in dell'immagine di respawn
+            float fadeInOffset = 3f; // Intervallo di tempo prima della fine del suono per iniziare il fade-in
+             float fadeInDuration = 1f; // Durata del fade-in dell'immagine di respawn
             float fadeOutDuration = 1f; // Durata del fade-out dell'immagine di respawn
             float additionalDelay = 1f; // Tempo aggiuntivo per visualizzare l'immagine prima del respawn
 
