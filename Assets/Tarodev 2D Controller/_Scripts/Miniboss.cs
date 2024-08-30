@@ -17,6 +17,9 @@ public class Miniboss : MonoBehaviour
     public Slider healthBar; // Riferimento alla barra della salute UI
     public int damage = 10; // Danno inflitto dal potere del giocatore
 
+    public AudioClip victorySound; // Suono da riprodurre alla vittoria
+    public GameObject VictoryPanel; // Pannello di vittoria
+
     private float nextFireTime = 0f;
     private bool isActive = false; // Stato di attivazione del miniboss
     private int currentHealth; // Salute attuale del miniboss
@@ -24,9 +27,8 @@ public class Miniboss : MonoBehaviour
     private bool isDefeated = false; // Stato del miniboss (sconfitto o meno)
     public float laserLifetime = 5f; // Durata del laser in secondi
 
+
     private AudioSource audioSource; // Reference to AudioSource
-    public AudioClip victorySound; // Suono da riprodurre alla vittoria
-    public GameObject VictoryPanel; // Pannello di vittoria
 
     //private List<GameObject> lasers = new List<GameObject>(); // Lista per tracciare i laser creati
 
@@ -116,6 +118,43 @@ public class Miniboss : MonoBehaviour
         }
     }
 
+    private IEnumerator HandleMinibossDefeat()
+    {
+        isDefeated = true;
+        Debug.Log("Miniboss sconfitto!");
+
+        // Display victory panel
+        if (VictoryPanel != null)
+        {
+            VictoryPanel.SetActive(true);
+        }
+
+        // Play the victory sound
+        if (audioSource != null && victorySound != null)
+        {
+            audioSource.clip = victorySound; // Set victory sound
+            audioSource.Play(); // Play it
+        }
+
+        // Wait for 5 seconds before loading the final_scene
+        yield return new WaitForSeconds(5f);
+
+        if (UIManager.Instance != null)
+        {
+            Destroy(UIManager.Instance.gameObject);
+        }
+
+        if (UIMainMenu.Instance != null)
+        {
+            Destroy(UIMainMenu.Instance.gameObject);
+        }
+
+
+
+        // Load the MainMenu scene
+        SceneManager.LoadScene("final_scene");
+    }
+
     void TakeDamage(int damage)
     {
         if (isDefeated) return; // Se gi� sconfitto, non applicare danno
@@ -169,30 +208,7 @@ public class Miniboss : MonoBehaviour
         }
     }
 
-    private IEnumerator HandleMinibossDefeat()
-    {
-        isDefeated = true;
-        Debug.Log("Miniboss sconfitto!");
-
-        // Display victory panel
-        if (VictoryPanel != null)
-        {
-            VictoryPanel.SetActive(true);
-        }
-
-        // Play the victory sound
-        if (audioSource != null && victorySound != null)
-        {
-            audioSource.clip = victorySound; // Set victory sound
-            audioSource.Play(); // Play it
-        }
-
-        // Wait for 5 seconds before loading the MainMenu
-        yield return new WaitForSeconds(5f);
-
-        // Load the MainMenu scene
-        SceneManager.LoadScene("final_scene");
-    }
+    
 
     // Metodo per gestire l'entrata del giocatore nell'area di attivazione del potere
     public void PlayerEnteredPowerArea()
