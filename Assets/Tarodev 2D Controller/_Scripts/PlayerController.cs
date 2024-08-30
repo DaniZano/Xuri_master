@@ -385,9 +385,8 @@ namespace TarodevController
 
             playerPath.ResetPath();
             enemyFollowPath.ResetEnemy();
-
-
             transform.position = respawnPoint.position;
+
             _rb.velocity = Vector2.zero;
             _frameVelocity = Vector2.zero;
             _jumpsRemaining = _maxJumps; // Reset dei salti al respawn
@@ -396,6 +395,8 @@ namespace TarodevController
             Collectible.CollectiblesReappear();
             FallingPlatformManager.ResetAllPlatforms();
             miniboss.ResetHealth();
+
+            
 
 
         }
@@ -407,6 +408,10 @@ namespace TarodevController
             audioSource.PlayOneShot(respawnSound); // Riproduci il suono del respawn
             float respawnSoundDuration = respawnSound.length; // Ottieni la durata del suono di respawn
             float fadeInOffset = 5f; // Intervallo di tempo prima della fine del suono per iniziare il fade-in
+             float fadeInDuration = 2f; // Durata del fade-in dell'immagine di respawn
+            float fadeOutDuration = 1f; // Durata del fade-out dell'immagine di respawn
+            float additionalDelay = 1f; // Tempo aggiuntivo per visualizzare l'immagine prima del respawn
+
 
 
 
@@ -415,22 +420,25 @@ namespace TarodevController
             transitionAnimator.SetTrigger("FadeOut");
 
             // Aspetta che la transizione sia completata
-            //yield return new WaitForSeconds(transitionTime); 
+            yield return new WaitForSeconds(transitionTime); 
 
              if (respawnImage != null)
         {
             respawnImage.gameObject.SetActive(true);
-            yield return StartCoroutine(FadeImageIn(respawnImage, 2f));
+            yield return StartCoroutine(FadeImageIn(respawnImage, fadeInDuration));
         }
+
+            
+
         // Aspetta per la durata del suono di respawn
-            yield return new WaitForSeconds(respawnSoundDuration - fadeInOffset);
+            yield return new WaitForSeconds(respawnSoundDuration - fadeInDuration - additionalDelay);
             // Avvia la transizione di fade in
             transitionAnimator.SetTrigger("FadeIn");
             // Aspetta che la transizione sia completata
             yield return new WaitForSeconds(transitionTime);
             if (respawnImage != null)
                     {
-                        yield return StartCoroutine(FadeImageOut(respawnImage, 0.5f)); // Fai il fade-out dell'immagine
+                        yield return StartCoroutine(FadeImageOut(respawnImage, fadeOutDuration)); // Fai il fade-out dell'immagine
                         respawnImage.gameObject.SetActive(false);
                     }
 
@@ -443,7 +451,7 @@ namespace TarodevController
             transitionAnimator.SetTrigger("Normal");
             
 
-            yield return new WaitForSeconds(respawnDelay);
+            //yield return new WaitForSeconds(respawnDelay);
             //transform.position = respawnPoint.position;
 
             
@@ -451,6 +459,12 @@ namespace TarodevController
 
             yield return new WaitForSeconds(respawnDelay);
             _isRespawning = false; // Termina il respawn
+
+            
+
+
+            
+            
 
 
         }
