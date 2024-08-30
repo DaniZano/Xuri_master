@@ -407,10 +407,10 @@ namespace TarodevController
         {
             audioSource.PlayOneShot(respawnSound); // Riproduci il suono del respawn
             float respawnSoundDuration = respawnSound.length; // Ottieni la durata del suono di respawn
-            float fadeInOffset = 3f; // Intervallo di tempo prima della fine del suono per iniziare il fade-in
-             float fadeInDuration = 1f; // Durata del fade-in dell'immagine di respawn
-            float fadeOutDuration = 1f; // Durata del fade-out dell'immagine di respawn
-            float additionalDelay = 1f; // Tempo aggiuntivo per visualizzare l'immagine prima del respawn
+            float fadeInOffset = 0.2f; // Intervallo di tempo prima della fine del suono per iniziare il fade-in
+             float fadeInDuration = 0.8f; // Durata del fade-in dell'immagine di respawn
+            float fadeOutDuration = 0.5f; // Durata del fade-out dell'immagine di respawn
+            float additionalDelay = 0.0f; // Tempo aggiuntivo per visualizzare l'immagine prima del respawn
 
 
 
@@ -431,7 +431,7 @@ namespace TarodevController
             
 
         // Aspetta per la durata del suono di respawn
-            yield return new WaitForSeconds(respawnSoundDuration - fadeInDuration - additionalDelay);
+            yield return new WaitForSeconds(respawnSoundDuration - 1.5f - fadeInDuration - additionalDelay);
             // Avvia la transizione di fade in
             transitionAnimator.SetTrigger("FadeIn");
             // Aspetta che la transizione sia completata

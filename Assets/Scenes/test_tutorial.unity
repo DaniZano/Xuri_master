@@ -96934,7 +96934,7 @@ MonoBehaviour:
   useCollectibleSound: {fileID: 8300000, guid: 5e653334a4fc641eb906439e6a6e7de7, type: 3}
   respawnSound: {fileID: 8300000, guid: 4e73ffd2051834a06ad309b835128058, type: 3}
   diaryPageSound: {fileID: 8300000, guid: 1666cfb736b72450e97fe24e80f494ed, type: 3}
-  eggSound: {fileID: 8300000, guid: d0dee5dac533e4c0db97d406ffcdceef, type: 3}
+  eggSound: {fileID: 8300000, guid: 923ef211cc0da714298832295cb6af4b, type: 3}
   _jumpsRemaining: 0
   _maxJumps: 2
   animator: {fileID: 5192796839222184983}
