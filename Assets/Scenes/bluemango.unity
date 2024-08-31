@@ -381,7 +381,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531895029}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 757d7e4f1faa64aecbd9fe971f56ea7e, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 4e73a3f6a062d47aeb7eb8fa4e8d371c, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
