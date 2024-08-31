@@ -55,6 +55,7 @@ public class MenuManagerINPLAY : MonoBehaviour
         if (MenuUI != null)
         {
             MenuUI.SetActive(false);
+            settingsOverlay.SetActive(false);
         }
 
         // Inizializza gli slot come trasparenti

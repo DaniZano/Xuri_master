@@ -57,6 +57,28 @@ public class UIMainMenu : MonoBehaviour
             }
         }
 
+        if (SceneManager.GetActiveScene().name == "Main Menu")
+        {
+            MenuManagerINPLAY menuINPLAY = FindObjectOfType<MenuManagerINPLAY>();
+            if (menuINPLAY != null)
+            {
+                Destroy(menuINPLAY.gameObject);
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name == "Main Menu")
+        {
+            UIManager inventario = FindObjectOfType<UIManager>();
+            if (inventario != null)
+            {
+                Destroy(inventario.gameObject);
+            }
+        }
+
+
+
+
+
         // Mostra il selettore all'inizio e imposta il colore con la trasparenza desiderata
         if (MainSelector != null)
         {
