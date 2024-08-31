@@ -96951,10 +96951,10 @@ MonoBehaviour:
   respawnDelay: 1
   jumpSound: {fileID: 8300000, guid: deb45f15aa90a4580a6e8bc855bccdcb, type: 3}
   collectibleSound: {fileID: 8300000, guid: 24763ddf590b54638a2f20233170b828, type: 3}
-  useCollectibleSound: {fileID: 8300000, guid: 5e653334a4fc641eb906439e6a6e7de7, type: 3}
+  useCollectibleSound: {fileID: 8300000, guid: 659378bb3007e054d8d1e9a6a62689d6, type: 3}
   respawnSound: {fileID: 8300000, guid: 4e73ffd2051834a06ad309b835128058, type: 3}
   diaryPageSound: {fileID: 8300000, guid: 1666cfb736b72450e97fe24e80f494ed, type: 3}
-  eggSound: {fileID: 8300000, guid: 923ef211cc0da714298832295cb6af4b, type: 3}
+  eggSound: {fileID: 8300000, guid: 93819da759a67af4688dd7255ffae386, type: 3}
   _jumpsRemaining: 0
   _maxJumps: 2
   animator: {fileID: 5192796839222184983}
