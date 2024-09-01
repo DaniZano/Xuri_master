@@ -1013,7 +1013,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: a1333852617524109891509b55fc1d71, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
-  m_Pitch: 1
+  m_Pitch: 0.6
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -51412,6 +51412,7 @@ GameObject:
   - component: {fileID: 1377863649}
   - component: {fileID: 1377863651}
   - component: {fileID: 1377863650}
+  - component: {fileID: 1377863652}
   m_Layer: 5
   m_Name: PanelVictory
   m_TagString: Untagged
@@ -51476,6 +51477,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377863648}
   m_CullTransparentMesh: 1
+--- !u!225 &1377863652
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377863648}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1379134129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78728,9 +78741,9 @@ MonoBehaviour:
   healthBar: {fileID: 2857855961349617249}
   damage: 20
   victorySound: {fileID: 8300000, guid: 5e653334a4fc641eb906439e6a6e7de7, type: 3}
-  VictoryPanel: {fileID: 1488049031}
-  laserLifetime: 5
-  playerController: {fileID: 6404756885981634099}
+  VictoryCanvas: {fileID: 1488049031}
+  VictoryPanel: {fileID: 1377863648}
+  fadeDuration: 1
 --- !u!4 &253373926736905340
 Transform:
   m_ObjectHideFlags: 0
@@ -83078,9 +83091,9 @@ MonoBehaviour:
   healthBar: {fileID: 2857855961349617249}
   damage: 25
   victorySound: {fileID: 0}
+  VictoryCanvas: {fileID: 0}
   VictoryPanel: {fileID: 0}
-  laserLifetime: 5
-  playerController: {fileID: 6404756885981634099}
+  fadeDuration: 1
 --- !u!251 &1687293044280084535
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -97133,9 +97146,9 @@ MonoBehaviour:
   healthBar: {fileID: 2857855961349617249}
   damage: 25
   victorySound: {fileID: 0}
+  VictoryCanvas: {fileID: 0}
   VictoryPanel: {fileID: 0}
-  laserLifetime: 5
-  playerController: {fileID: 6404756885981634099}
+  fadeDuration: 1
 --- !u!33 &6432658852184390537
 MeshFilter:
   m_ObjectHideFlags: 0

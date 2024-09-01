@@ -38,13 +38,15 @@ public class SeagullMovementTrigger : MonoBehaviour
             if (seagullMover.IsWaitingForPlayer())
             {
                 seagullMover.ContinueMovement();
+                
             }
             else if (!seagullMover.IsMoving)
             {
                 seagullMover.StartMovement();
-                PlayFlySound(); 
+                
 
             }
+            PlayFlySound(); 
         }
     }
 

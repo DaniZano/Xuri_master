@@ -18,19 +18,21 @@ public class Miniboss : MonoBehaviour
     public int damage = 10; // Danno inflitto dal potere del giocatore
 
     public AudioClip victorySound; // Suono da riprodurre alla vittoria
-    public GameObject VictoryPanel; // Pannello di vittoria
+    public GameObject VictoryCanvas; // Riferimento al Canvas che contiene tutto
+    public GameObject VictoryPanel; // Riferimento diretto al Panel dentro il Canvas
+    public float fadeDuration = 0.5f; // Durata del fade in/fade out in secondi
 
     private float nextFireTime = 0f;
     private bool isActive = false; // Stato di attivazione del miniboss
     private int currentHealth; // Salute attuale del miniboss
     private bool playerInPowerArea = false; // Stato del giocatore nell'area del potere
     private bool isDefeated = false; // Stato del miniboss (sconfitto o meno)
-    public float laserLifetime = 5f; // Durata del laser in secondi
+    private float laserLifetime = 5f; // Durata del laser in secondi
 
-    private AudioSource audioSource; // Reference to AudioSource
+    private AudioSource audioSource; // Riferimento a AudioSource
     private List<GameObject> activeLasers = new List<GameObject>(); // Lista per tracciare i laser attivi
-
-    public PlayerController playerController;
+    private Image panelImage; // Riferimento al componente Image del VictoryPanel
+    private PlayerController playerController;
 
     void Start()
     {
@@ -48,7 +50,22 @@ public class Miniboss : MonoBehaviour
 
         if (VictoryPanel != null)
         {
-            VictoryPanel.SetActive(false);
+            // Otteniamo il componente Image dal Panel
+            panelImage = VictoryPanel.GetComponent<Image>();
+
+            if (panelImage == null)
+            {
+                Debug.LogError("VictoryPanel non ha un componente Image!");
+                return;
+            }
+
+            // Imposta l'alpha iniziale a 0 (trasparente)
+            Color color = panelImage.color;
+            color.a = 0;
+            panelImage.color = color;
+
+            // Disabilita il Canvas all'inizio
+            VictoryCanvas.SetActive(false);
         }
 
         currentHealth = maxHealth;
@@ -157,22 +174,25 @@ public class Miniboss : MonoBehaviour
         isDefeated = true;
         Debug.Log("Miniboss sconfitto!");
 
-        // Display victory panel
-        if (VictoryPanel != null)
+        // Mostra il Canvas e inizia il fade in del pannello
+        if (VictoryCanvas != null)
         {
-            VictoryPanel.SetActive(true);
+            VictoryCanvas.SetActive(true);
+            yield return StartCoroutine(Fade(0, 1)); // Fade In
         }
 
-        // Play the victory sound
+        // Riproduci il suono della vittoria
         if (audioSource != null && victorySound != null)
         {
-            audioSource.clip = victorySound; // Set victory sound
-            audioSource.Play(); // Play it
+            audioSource.clip = victorySound;
+            audioSource.Play();
         }
 
-        // Wait for 5 seconds before loading the Main Menu
+        // Attendi 5 secondi
         yield return new WaitForSeconds(5f);
 
+
+        // Distruggi UIManager e UIMainMenu, se esistono
         if (UIManager.Instance != null)
         {
             Destroy(UIManager.Instance.gameObject);
@@ -183,8 +203,25 @@ public class Miniboss : MonoBehaviour
             Destroy(UIMainMenu.Instance.gameObject);
         }
 
-        // Load the MainMenu scene
+        // Carica la scena del Main Menu
         SceneManager.LoadScene("Main Menu");
+    }
+
+    private IEnumerator Fade(float startAlpha, float endAlpha)
+    {
+        float elapsedTime = 0.0f;
+        Color color = panelImage.color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            color.a = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / fadeDuration);
+            panelImage.color = color;
+            yield return null;
+        }
+
+        color.a = endAlpha;
+        panelImage.color = color;
     }
 
     void OnTriggerEnter2D(Collider2D other)
