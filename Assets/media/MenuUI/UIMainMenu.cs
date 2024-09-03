@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class UIMainMenu : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class UIMainMenu : MonoBehaviour
     private bool isOverlayActive = false; // Flag per controllare se un overlay è attivo
     private bool isMenuActive = true; // Flag per controllare se il menu è attivo
 
+    public float fadeDuration = 0.25f; // Durata del fade
+    private CanvasGroup mainMenuCanvasGroup;
+
     void Awake()
     {
         if (Instance == null)
@@ -45,7 +49,18 @@ public class UIMainMenu : MonoBehaviour
         // Assicurati che il menu sia visibile all'inizio
         if (MainMenuUI != null)
         {
+            mainMenuCanvasGroup = MainMenuUI.GetComponent<CanvasGroup>();
+            if (mainMenuCanvasGroup == null)
+            {
+                mainMenuCanvasGroup = MainMenuUI.AddComponent<CanvasGroup>();
+            }
+
+            // Nascondi inizialmente
+            mainMenuCanvasGroup.alpha = 0;
             MainMenuUI.SetActive(true);
+
+            // Avvia il fade-in
+            StartCoroutine(Fade(0, 1, fadeDuration));
         }
 
         // Inizializza gli slot come trasparenti
@@ -74,9 +89,6 @@ public class UIMainMenu : MonoBehaviour
                 Destroy(inventario.gameObject);
             }
         }
-
-
-
 
 
         // Mostra il selettore all'inizio e imposta il colore con la trasparenza desiderata
@@ -108,6 +120,20 @@ public class UIMainMenu : MonoBehaviour
             volumeSlider.value = AudioListener.volume;
             volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
         }
+    }
+
+    private IEnumerator Fade(float startAlpha, float endAlpha, float duration)
+    {
+        float elapsedTime = 0.0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            mainMenuCanvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / duration);
+            yield return null;
+        }
+
+        mainMenuCanvasGroup.alpha = endAlpha;
     }
 
     void Update()

@@ -1012,8 +1012,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a1333852617524109891509b55fc1d71, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
-  m_Pitch: 0.6
+  m_Volume: 0.7
+  m_Pitch: 0.8
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -78743,7 +78743,7 @@ MonoBehaviour:
   victorySound: {fileID: 8300000, guid: 5e653334a4fc641eb906439e6a6e7de7, type: 3}
   VictoryCanvas: {fileID: 1488049031}
   VictoryPanel: {fileID: 1377863648}
-  fadeDuration: 1
+  fadeDuration: 0.5
 --- !u!4 &253373926736905340
 Transform:
   m_ObjectHideFlags: 0
@@ -83093,7 +83093,7 @@ MonoBehaviour:
   victorySound: {fileID: 0}
   VictoryCanvas: {fileID: 0}
   VictoryPanel: {fileID: 0}
-  fadeDuration: 1
+  fadeDuration: 0.5
 --- !u!251 &1687293044280084535
 PlatformEffector2D:
   m_ObjectHideFlags: 0
