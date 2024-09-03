@@ -21084,6 +21084,7 @@ MonoBehaviour:
   selectSound: {fileID: 8300000, guid: 2e2c75b139b25433cac1e795c0dfbd8d, type: 3}
   settingsOverlay: {fileID: 326393}
   volumeSlider: {fileID: 1912244484}
+  sceneAudioSource: {fileID: 519652107}
 --- !u!1001 &416121614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24197,7 +24198,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: c5a232d0b638c4f6d9e5f35ac4db4367, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7a634aa81501b41b6b0e3d3ed037575b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -78744,6 +78745,7 @@ MonoBehaviour:
   VictoryCanvas: {fileID: 1488049031}
   VictoryPanel: {fileID: 1377863648}
   fadeDuration: 0.5
+  sceneAudioSource: {fileID: 519652107}
 --- !u!4 &253373926736905340
 Transform:
   m_ObjectHideFlags: 0
@@ -83094,6 +83096,7 @@ MonoBehaviour:
   VictoryCanvas: {fileID: 0}
   VictoryPanel: {fileID: 0}
   fadeDuration: 0.5
+  sceneAudioSource: {fileID: 0}
 --- !u!251 &1687293044280084535
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -97149,6 +97152,7 @@ MonoBehaviour:
   VictoryCanvas: {fileID: 0}
   VictoryPanel: {fileID: 0}
   fadeDuration: 1
+  sceneAudioSource: {fileID: 0}
 --- !u!33 &6432658852184390537
 MeshFilter:
   m_ObjectHideFlags: 0

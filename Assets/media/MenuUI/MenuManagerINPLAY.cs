@@ -27,6 +27,9 @@ public class MenuManagerINPLAY : MonoBehaviour
 
     private PlayerController playerController;
 
+    public AudioSource sceneAudioSource; // Riferimento all'AudioSource della colonna sonora
+
+
     void Awake()
     {
         if (Instance == null)
@@ -91,6 +94,8 @@ public class MenuManagerINPLAY : MonoBehaviour
             volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
         }
     }
+
+    
 
     void Update()
     {
@@ -163,6 +168,11 @@ public class MenuManagerINPLAY : MonoBehaviour
             Time.timeScale = 0f; // Pausa il gioco
             MenuUI.SetActive(true);
 
+                if (sceneAudioSource != null)
+            {
+                sceneAudioSource.volume = 0.2f; // Riduci il volume (puoi cambiare il valore)
+            }
+
             if (playerController != null)
             {
                 playerController.disableInput(); // Disabilita l'input
@@ -173,6 +183,12 @@ public class MenuManagerINPLAY : MonoBehaviour
         {
             Time.timeScale = 1f; // Riprendi il gioco
             MenuUI.SetActive(false);
+
+            if (sceneAudioSource != null)
+        {
+            sceneAudioSource.volume = 0.35f; // Volume normale
+        }
+
             if (playerController != null)
             {
                 playerController.enableInput(); // Disabilita l'input
@@ -180,6 +196,21 @@ public class MenuManagerINPLAY : MonoBehaviour
 
         }
     }
+
+    private IEnumerator FadeOutAudio(AudioSource audioSource, float fadeDuration)
+{
+    float startVolume = audioSource.volume;
+
+    while (audioSource.volume > 0)
+    {
+        audioSource.volume -= startVolume * Time.deltaTime / fadeDuration;
+        yield return null;
+    }
+
+    audioSource.Stop();
+    audioSource.volume = startVolume; // Resetta il volume per futuri utilizzi
+}
+
 
     private void MoveSelector(int direction)
     {
@@ -266,6 +297,7 @@ public class MenuManagerINPLAY : MonoBehaviour
     public void OnSlot3Clicked()
     {
         Application.Quit();
+
     }
 
     public void OnSlot4Clicked()

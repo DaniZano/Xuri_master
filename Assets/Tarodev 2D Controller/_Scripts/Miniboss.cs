@@ -34,6 +34,8 @@ public class Miniboss : MonoBehaviour
     private Image panelImage; // Riferimento al componente Image del VictoryPanel
     private PlayerController playerController;
 
+    public AudioSource sceneAudioSource; 
+
     void Start()
     {
         playerController = player.GetComponent<PlayerController>();
@@ -191,6 +193,13 @@ public class Miniboss : MonoBehaviour
         // Attendi 5 secondi
         yield return new WaitForSeconds(5f);
 
+        if (sceneAudioSource != null)
+        {
+            yield return StartCoroutine(FadeOutAudio(sceneAudioSource, fadeDuration));
+        }
+
+        
+
 
         // Distruggi UIManager e UIMainMenu, se esistono
         if (UIManager.Instance != null)
@@ -222,6 +231,20 @@ public class Miniboss : MonoBehaviour
 
         color.a = endAlpha;
         panelImage.color = color;
+    }
+
+    private IEnumerator FadeOutAudio(AudioSource audioSource, float fadeDuration)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / fadeDuration;
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume; // Resetta il volume per futuri utilizzi
     }
 
     void OnTriggerEnter2D(Collider2D other)

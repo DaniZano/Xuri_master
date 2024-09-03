@@ -29,6 +29,8 @@ public class UIMainMenu : MonoBehaviour
     public float fadeDuration = 0.25f; // Durata del fade
     private CanvasGroup mainMenuCanvasGroup;
 
+    public AudioSource sceneAudioSource;
+
     void Awake()
     {
         if (Instance == null)
@@ -248,8 +250,16 @@ public class UIMainMenu : MonoBehaviour
 
     public void OnSlot1Clicked()
     {
+
+         if (sceneAudioSource != null)
+            {
+                StartCoroutine(FadeOutAudio(sceneAudioSource, 0.5f)); // 1.0f è la durata del fade out
+            }
+
+        // Chiama il metodo per caricare la scena dopo il fade out
+        StartCoroutine(LoadSceneAfterFade());
         // Carica la nuova scena
-        SceneManager.LoadScene("video_intro");
+        
         
         // Disattiva il menu principale
         if (MainMenuUI != null)
@@ -259,6 +269,29 @@ public class UIMainMenu : MonoBehaviour
 
        
     }
+
+    private IEnumerator LoadSceneAfterFade()
+    {
+        // Attendi fino al completamento del fade out
+        yield return new WaitForSeconds(1.0f); // La stessa durata del fade out
+
+        SceneManager.LoadScene("video_intro");
+    }
+
+    private IEnumerator FadeOutAudio(AudioSource audioSource, float fadeDuration)
+{
+    float startVolume = audioSource.volume;
+
+    while (audioSource.volume > 0)
+    {
+        audioSource.volume -= startVolume * Time.deltaTime / fadeDuration;
+        yield return null;
+    }
+
+    audioSource.Stop();
+    audioSource.volume = startVolume; // Resetta il volume per futuri utilizzi
+}
+
 
     public void OnSlot2Clicked()
     {
