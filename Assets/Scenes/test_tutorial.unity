@@ -28364,6 +28364,7 @@ MonoBehaviour:
   deathYLevel: -100
   cameraOffset: {x: 0, y: 0, z: 0}
   respawnDelay: 1
+  runSound: {fileID: 0}
   jumpSound: {fileID: 0}
   collectibleSound: {fileID: 0}
   useCollectibleSound: {fileID: 0}
@@ -96965,6 +96966,7 @@ MonoBehaviour:
   deathYLevel: -200
   cameraOffset: {x: 0, y: 0, z: 0}
   respawnDelay: 1
+  runSound: {fileID: 8300000, guid: 45019e38f9c284a1686be5129eece39c, type: 3}
   jumpSound: {fileID: 8300000, guid: deb45f15aa90a4580a6e8bc855bccdcb, type: 3}
   collectibleSound: {fileID: 8300000, guid: 24763ddf590b54638a2f20233170b828, type: 3}
   useCollectibleSound: {fileID: 8300000, guid: 659378bb3007e054d8d1e9a6a62689d6, type: 3}

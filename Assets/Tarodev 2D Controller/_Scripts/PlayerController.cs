@@ -26,6 +26,8 @@ namespace TarodevController
         private bool _isRespawning; // Variabile per tenere traccia dello stato di respawn
 
         // Audio variables
+        public AudioClip runSound;  // Aggiungi questo in cima tra le altre variabili AudioClip
+        private bool isRunning;     // Flag per tenere traccia dello stato di corsa
         public AudioClip jumpSound;
         public AudioClip collectibleSound;
         public AudioClip useCollectibleSound;
@@ -33,6 +35,8 @@ namespace TarodevController
         public AudioClip diaryPageSound;
         public AudioClip eggSound;
         private AudioSource audioSource;
+        private AudioSource runAudioSource;  // Nuovo AudioSource per il suono di corsa
+
 
 
 
@@ -76,6 +80,11 @@ namespace TarodevController
             {
                 respawnImage.gameObject.SetActive(false);
             }
+            // Inizializza il secondo AudioSource per il suono di corsa
+            runAudioSource = gameObject.AddComponent<AudioSource>();
+            runAudioSource.loop = true;  // Imposta il suono di corsa in loop
+            runAudioSource.volume = 0.2f;
+
             _rb = GetComponent<Rigidbody2D>();
             _rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
@@ -306,13 +315,28 @@ namespace TarodevController
                 var deceleration = _grounded ? _stats.GroundDeceleration : _stats.AirDeceleration;
                 _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, 0, deceleration * Time.fixedDeltaTime);
                 animator.SetBool("isRunning", false);
+
+                // Ferma solo il suono di corsa
+                if (runAudioSource.isPlaying)  
+                {
+                    runAudioSource.Stop();  
+                }
             }
             else
             {
                 _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, _frameInput.Move.x * _stats.MaxSpeed, _stats.Acceleration * Time.fixedDeltaTime);
-                animator.SetBool("isRunning", true);
 
-                // Flip the character to face the direction of movement
+                // Imposta l'animazione di corsa
+                animator.SetBool("isRunning", _grounded);  // Attiva l'animazione di corsa solo quando è a terra
+
+                // Se il giocatore è a terra e non sta già riproducendo il suono di corsa, riproducilo
+                if (_grounded && !runAudioSource.isPlaying)  
+                {
+                    runAudioSource.clip = runSound;  // Imposta il suono di corsa
+                    runAudioSource.Play();  // Inizia a riprodurre
+                }
+
+                // Flip del personaggio per la direzione di movimento
                 if (_frameInput.Move.x > 0 && !_facingRight)
                 {
                     Flip();
@@ -322,7 +346,18 @@ namespace TarodevController
                     Flip();
                 }
             }
+
+            // Ferma solo il suono di corsa se il giocatore è in aria
+            if (!_grounded && runAudioSource.isPlaying)
+            {
+                runAudioSource.Stop();  
+            }
         }
+
+
+
+
+
 
         private void Flip()
         {
