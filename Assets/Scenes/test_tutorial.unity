@@ -18550,10 +18550,11 @@ EdgeCollider2D:
   - {x: 2.6922965, y: 0.11406845}
   - {x: 2.6949716, y: 0.095638305}
   - {x: 3.4668694, y: 0.08439956}
-  - {x: 3.5991843, y: 0.07148866}
-  - {x: 3.6403415, y: 0.05665327}
-  - {x: 3.6857333, y: 0.050063733}
-  - {x: 3.6857333, y: 0.050063733}
+  - {x: 3.6036828, y: 0.07430008}
+  - {x: 3.6504629, y: 0.0656498}
+  - {x: 3.6746342, y: 0.06140215}
+  - {x: 3.6891072, y: 0.05343743}
+  - {x: 3.7177837, y: 0.051188298}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -96966,7 +96967,7 @@ MonoBehaviour:
   deathYLevel: -200
   cameraOffset: {x: 0, y: 0, z: 0}
   respawnDelay: 1
-  runSound: {fileID: 8300000, guid: 45019e38f9c284a1686be5129eece39c, type: 3}
+  runSound: {fileID: 0}
   jumpSound: {fileID: 8300000, guid: deb45f15aa90a4580a6e8bc855bccdcb, type: 3}
   collectibleSound: {fileID: 8300000, guid: 24763ddf590b54638a2f20233170b828, type: 3}
   useCollectibleSound: {fileID: 8300000, guid: 659378bb3007e054d8d1e9a6a62689d6, type: 3}
